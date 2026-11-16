@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Saba Archaia">
+<meta name="description" content="2S Group LLC: maintenance of industrial pumps, diesel engines and material handling equipment, diagnostics, spare parts, automation, electrical works and certified welding in Georgia. High quality and EHS standards.">
+<title>2S Group</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&family=Noto+Sans+Georgian:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Layout idea: brand navy + steel from the logo; a technical service manual with numbered sections, spec cards and a risk matrix */
+  --bg:#f3f5f8;
+  --panel:#ffffff;
+  --line:#dde3ea;
+  --ink:#0f1d33;
+  --muted:#566173;
+  --navy:#0d2a55;
+  --navy2:#163d78;
+  --steel:#8a9099;
+  --safety:#e07a10;
+  --display:"Montserrat","Noto Sans Georgian",Arial,sans-serif;
+  --body:"IBM Plex Sans","Noto Sans Georgian",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  color-scheme:light;
+}
+:lang(ka){--display:"Noto Sans Georgian",Arial,sans-serif;--body:"Noto Sans Georgian",system-ui,sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 var(--body)}
+a{color:var(--navy2)}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid var(--safety);outline-offset:3px}
+img,svg{max-width:100%}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--display);font-weight:800;line-height:1.12;margin:0;text-wrap:balance}
+h2{font-size:clamp(28px,3.8vw,44px);letter-spacing:-.01em}
+h3{font-size:19px;font-weight:700}
+p{margin:0}
+.tag{font:500 12px/1.3 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--safety)}
+:lang(ka) .tag{font-family:var(--body);letter-spacing:.04em;font-weight:600}
+.lead{color:var(--muted);max-width:66ch;font-size:17px}
+
+/* Header */
+header.nav{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:18px;height:74px}
+.nav .logo img{height:50px;width:auto;display:block}
+.nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0}
+.nav ul a{color:var(--ink);text-decoration:none;font-size:14px;font-weight:600}
+.nav ul a:hover{color:var(--navy2)}
+.nav-right{display:flex;align-items:center;gap:12px}
+.lang{display:flex;border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.lang button{background:none;border:0;padding:8px 10px;font:600 13px var(--body);color:var(--muted);cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--navy);color:#fff}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--safety);color:#fff;border:0;border-radius:4px;padding:13px 20px;font:600 15px/1 var(--body);text-decoration:none;cursor:pointer}
+.btn:hover{filter:brightness(1.06)}
+.btn.ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.4)}
+.btn.ghost:hover{border-color:#fff}
+.btn.sm{padding:10px 14px;font-size:14px}
+@media (max-width:1080px){.nav ul{display:none}}
+@media (max-width:560px){.nav .btn.sm{display:none}.nav .logo img{height:40px}}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;background:var(--navy);color:#fff}
+.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px);background-size:44px 44px;mask-image:radial-gradient(ellipse at 72% 40%,#000 25%,transparent 78%)}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding-top:72px;padding-bottom:64px}
+.hero h1{font-size:clamp(36px,5.2vw,62px);margin:18px 0 22px;letter-spacing:-.015em}
+.hero h1 em{font-style:normal;color:#f5a54a}
+.hero .lead{color:#c9d4e4}
+.hero .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.badges{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid rgba(255,255,255,.15)}
+.badges div{display:flex;gap:12px;align-items:flex-start;padding:22px 20px 26px;border-left:1px solid rgba(255,255,255,.15);font-size:14px;color:#dfe7f2;font-weight:500}
+.badges div:first-child{border-left:0;padding-left:0}
+.badges svg{flex:none;margin-top:2px}
+@media (max-width:900px){.hero .wrap{grid-template-columns:1fr;padding-top:48px}.badges{grid-template-columns:1fr 1fr}.badges div{border-left:0;padding-left:0;border-top:1px solid rgba(255,255,255,.12)}}
+@media (max-width:520px){.badges{grid-template-columns:1fr}}
+
+/* Stats */
+.strip{background:var(--panel);border-bottom:1px solid var(--line)}
+.strip .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.strip div{padding:26px 20px;border-left:1px solid var(--line)}
+.strip div:first-child{border-left:0;padding-left:0}
+.strip b{display:block;font:800 40px/1 var(--display);color:var(--navy)}
+:lang(ka) .strip b{font-family:"Montserrat",sans-serif}
+.strip small{color:var(--muted);font-size:13px;display:block;margin-top:6px}
+@media (max-width:760px){.strip .wrap{grid-template-columns:1fr 1fr}.strip div{border-left:0;padding-left:0;border-top:1px solid var(--line)}}
+
+section{padding:92px 0;border-bottom:1px solid var(--line)}
+.sec-head{display:grid;grid-template-columns:auto 1fr;gap:10px 28px;align-items:end;margin-bottom:46px}
+.sec-num{font:800 70px/.8 "Montserrat",sans-serif;color:transparent;-webkit-text-stroke:1.5px var(--steel)}
+.sec-head .lead{grid-column:2;margin-top:8px}
+.sec-head h2{margin-top:8px}
+@media (max-width:640px){.sec-head{grid-template-columns:1fr}.sec-head .lead{grid-column:1}.sec-num{font-size:50px}}
+
+/* About */
+.story{display:grid;grid-template-columns:1.05fr .95fr;gap:56px}
+.story .body p{color:var(--muted)}
+.story .body p+p{margin-top:16px}
+.story .body p:first-child{color:var(--ink);font-size:18px;font-weight:500}
+.timeline{list-style:none;margin:0;padding:0;border-left:2px solid var(--line)}
+.timeline li{position:relative;padding:0 0 28px 28px}
+.timeline li::before{content:"";position:absolute;left:-8px;top:5px;width:14px;height:14px;background:var(--bg);border:3px solid var(--navy2);border-radius:50%}
+.timeline li.now::before{background:var(--safety);border-color:var(--safety)}
+.timeline .when{font:500 12px/1 var(--mono);color:var(--navy2);letter-spacing:.1em;text-transform:uppercase}
+:lang(ka) .timeline .when{font-family:var(--body)}
+.timeline h3{margin:8px 0 6px}
+.timeline p{color:var(--muted);font-size:15px}
+@media (max-width:860px){.story{grid-template-columns:1fr}}
+
+/* Cards */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media (max-width:960px){.grid{grid-template-columns:1fr 1fr}}
+@media (max-width:620px){.grid{grid-template-columns:1fr}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:6px;overflow:hidden;display:flex;flex-direction:column}
+.card .pic{aspect-ratio:16/8;background:linear-gradient(150deg,var(--navy2),var(--navy));display:flex;align-items:center;justify-content:center}
+.card .pic svg{width:66%;height:auto}
+.card .txt{padding:22px;display:flex;flex-direction:column;gap:10px;flex:1}
+.card .code{font:500 11px/1 var(--mono);color:var(--steel);letter-spacing:.12em}
+.card p{color:var(--muted);font-size:15px}
+.card ul{margin:2px 0 0;padding-left:18px;font-size:14px}
+.card ul li{margin:4px 0}
+.card ul li::marker{color:var(--safety)}
+
+/* Brands */
+.brand-groups{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+@media (max-width:760px){.brand-groups{grid-template-columns:1fr}}
+.bg{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:22px}
+.bg h3{margin-bottom:14px;color:var(--navy)}
+.brands{display:flex;flex-wrap:wrap;gap:8px}
+.brands span{border:1px solid var(--line);border-radius:3px;padding:8px 12px;font:700 14px/1 "Montserrat",sans-serif;letter-spacing:.03em;color:var(--ink);background:var(--bg)}
+.fine{margin-top:18px;color:var(--muted);font-size:12px;max-width:90ch}
+
+/* EHS band */
+#ehs{background:var(--navy);color:#fff;border-bottom:0}
+#ehs .lead{color:#c9d4e4}
+#ehs .sec-num{-webkit-text-stroke-color:#6f86ab}
+.ctrl{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media (max-width:900px){.ctrl{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.ctrl{grid-template-columns:1fr}}
+.ctrl div{border:1px solid rgba(255,255,255,.16);border-radius:6px;padding:22px;background:rgba(255,255,255,.04)}
+.ctrl b{display:inline-block;font:600 12px/1 var(--mono);color:#0d2a55;background:#f5a54a;border-radius:3px;padding:5px 7px;margin-bottom:12px}
+.ctrl h3{margin-bottom:6px}
+.ctrl p{color:#c9d4e4;font-size:15px}
+.matrix{margin-top:44px;overflow-x:auto}
+.matrix h3{margin-bottom:14px}
+table{width:100%;border-collapse:collapse;min-width:720px;background:#fff;color:var(--ink);border-radius:6px;overflow:hidden;font-size:14px}
+th,td{text-align:left;padding:14px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#eef2f7;font-weight:600;color:var(--navy)}
+td.lv{font-weight:700;white-space:nowrap;border-left:6px solid}
+tr.l1 td.lv{border-left-color:#2e9e5b}
+tr.l2 td.lv{border-left-color:#e0a110}
+tr.l3 td.lv{border-left-color:#d23c2f}
+tr:last-child td{border-bottom:0}
+
+/* Quality */
+.qgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--panel)}
+.qgrid div{padding:26px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.qgrid div:nth-child(3n){border-right:0}
+.qgrid div:nth-last-child(-n+3){border-bottom:0}
+.qgrid .n{font:800 15px/1 "Montserrat",sans-serif;color:var(--safety)}
+.qgrid h3{margin:10px 0 6px;color:var(--navy)}
+.qgrid p{color:var(--muted);font-size:15px}
+@media (max-width:860px){.qgrid{grid-template-columns:1fr}.qgrid div{border-right:0!important;border-bottom:1px solid var(--line)!important}.qgrid div:last-child{border-bottom:0!important}}
+
+/* Team */
+.team{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;position:relative}
+.team::before{content:"";position:absolute;left:8%;right:8%;top:34px;height:2px;background:var(--line);z-index:0}
+.role{position:relative;z-index:1;background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:20px}
+.role .ic{width:46px;height:46px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.role.ehs{border-color:var(--safety);box-shadow:0 0 0 1px var(--safety) inset}
+.role.ehs .ic{background:var(--safety)}
+.role h3{font-size:17px;margin-bottom:6px;color:var(--navy)}
+.role p{color:var(--muted);font-size:14px}
+@media (max-width:960px){.team{grid-template-columns:1fr 1fr}.team::before{display:none}}
+@media (max-width:520px){.team{grid-template-columns:1fr}}
+
+/* Process */
+.steps{display:grid;grid-template-columns:repeat(6,1fr);gap:0}
+.step{padding:24px 20px;border:1px solid var(--line);margin-left:-1px;background:var(--panel)}
+.step b{font:800 34px/1 "Montserrat",sans-serif;color:var(--navy2)}
+.step.ehs b{color:var(--safety)}
+.step h3{font-size:17px;margin:12px 0 8px}
+.step p{color:var(--muted);font-size:14px}
+@media (max-width:1000px){.steps{grid-template-columns:repeat(3,1fr)}.step{margin-top:-1px}}
+@media (max-width:560px){.steps{grid-template-columns:1fr}.step{margin-left:0}}
+
+/* Value */
+.vgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media (max-width:900px){.vgrid{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.vgrid{grid-template-columns:1fr}}
+.v{border-top:3px solid var(--navy);padding-top:16px}
+.v h3{margin-bottom:6px}
+.v p{color:var(--muted);font-size:15px}
+
+/* Industries */
+.inds{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.ind{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:20px;border-top:4px solid var(--steel)}
+.ind h3{font-size:17px;margin-bottom:6px;color:var(--navy)}
+.ind p{color:var(--muted);font-size:14px}
+@media (max-width:960px){.inds{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.inds{grid-template-columns:1fr}}
+
+/* Contact */
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+@media (max-width:860px){.contact{grid-template-columns:1fr}}
+.info dl{margin:28px 0 0;display:grid;grid-template-columns:auto 1fr;gap:14px 22px}
+.info dt{font:500 12px/1.8 var(--mono);color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+:lang(ka) .info dt{font-family:var(--body)}
+.info dd{margin:0;font-weight:600}
+.info dd a{text-decoration:none}
+form{display:grid;gap:14px;background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:26px}
+label{font-size:13px;color:var(--muted);display:grid;gap:6px;font-weight:500}
+input,select,textarea{background:var(--bg);border:1px solid var(--line);border-radius:4px;color:var(--ink);padding:12px;font:15px var(--body)}
+textarea{min-height:110px;resize:vertical}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:520px){.row2{grid-template-columns:1fr}}
+#formMsg{font-size:14px;color:var(--navy2);min-height:1.4em}
+
+footer{background:var(--navy);color:#c9d4e4;padding:34px 0;font-size:13px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+
+@keyframes flick{0%,100%{opacity:1}50%{opacity:.35}}
+.spark{animation:flick 1.6s ease-in-out infinite}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="2S Group LLC"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAQDAwQDAwQEBAQFBQQFBwsHBwYGBw4KCggLEA4RERAOEA8SFBoWEhMYEw8QFh8XGBsbHR0dERYgIh8cIhocHRz/2wBDAQUFBQcGBw0HBw0cEhASHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBz/wAARCAC6AjADASIAAhEBAxEB/8QAHQABAQADAAMBAQAAAAAAAAAAAAEHCAkEBQYDAv/EAF8QAAEDAwEGAgQFDgkFDQkBAAEAAgMEBREGBwgSITFBUWETInGBFDJikbEJFRcjQlJWcnWClaHB0hYzN3OSsrPC0yRDk6LRGBkmJzQ1RlNXY3SD8DY4REdUZISjw+H/xAAaAQEAAwEBAQAAAAAAAAAAAAAAAwQFAgEG/8QANREAAgICAAMGAwcCBwAAAAAAAAECAwQREiExBRMUIkFRMmFxFSMzUoGRsUJEJDRTYqHR8P/aAAwDAQACEQMRAD8A39TKc0OfBAAiAZTAQBOShCo6IB1TCEJnkgIiucIgGU5KBO6AvVTkrkqIC9EUTKAp8EwoiA/rC/nkr06J7UBMq9U6KIC55KIqeiAZUQIUARFchARFcqIAr05KIgAVyorhAAmUx4KIC5TKiIC5TKdFEBcp0URAXKivVOSAiuEKnVAX6U5hOimUA6q45qdkQBFUKAgVOEymUAATomVEBeSAp2TsgBKdECiAqZQKoD+UCueSiAuUyphEBQUKiIAF/QX8qhAPenVQKjogIiIEBfeh6JyVQE6p2QoSgJhVCVEBSoqmEBFeWEyAvj9XbVdFaEa7+EWprXb5B/mZZwZT7I25cfmXqi5PSR42lzZ9hhMLVzU+/ZoC0l0dnt93vEo6PEbaaI/nSHi/1Vi+8782t7iD/B3Rdvp2OOGulM1Y4f0A0KxHDul6a+pC8mtepvmcKZHiFzauW8vvA3bLqaKto4z2obAcfO5jj+tfK1+3HbwwOdV6g1TTjv8A5D6ID/8AUFMuz5v+pHDy4+zOp+fNBz7rkszeS2sU8hade3gSDq2R7CfmLV9Ba97nbDbHtcdTirYOsdZQwvB94aD+tevs2zXJo58bD1TOpKLQfSm/zqKlkjj1Ppa318PR01uldTyAePC7iaT7wtnNmW8ps/2pSxUdsuhorw8DFuuLRDM4+DOfC/8ANJPkq9mLbXzkuRNDIrnyTMu+5MFO3VM8lXJgh5p1U6IAidVe6AgVT3KZQBUJ7lEBSmFEQFxzTCIThAQKjmphXplACUCiqAiqioQERX3KIArhRUIAnZPciAmMoiIC+9REQFUTKIC90worlAREVQEV96J2QDspzVCHogHJRVO6AmU6qlRAXCYQIUBFQor2QBREQBAie9AMK5TKiAuUKiIC+5MICF8fdNU3S5OfSaRoYK2cO4H3CrcWUUB78x60zh96zl2L2r1LZ43o+muFyo7RRy1lfVQUlJCOKSeeQMYweJceQWNajbDPf3Op9A6drdROzw/XB4NPQN8/SuHr/mjHmvPpNk1vr6yK5ayrZtVXWN3Gz4e0NpKc/wDdUo+1t7c3cTvFxXl3/a7s+0b9ou2rrHQuj9X0Bq2cbcduBpJHzKSKXots4bfq9GNr7so2r7RnuZqPaK2w2uUHit+n4S04+9MmQT7yfYv409uX7L7O8TXCkuN7qjzkkr6x2Hu7ktj4QfflfUx70WyGWTgbrq2B3i5sjR85Zhfd6a17pbWLOLT+obXdOWSKOqZI4DzaDkfMpJWXRWui+mjhQrk99X+56ux7H9A6bjay16OsVMW9Htoo3P8A6TgT+tfYQU0NNGI4ImRRjo2NoaB7gv2zlRV3JvqyZJLoCPM/OrgY7/OmF+FZXU1vppKmrqIqenjGXyzPDGNHmTyC8PT1d40fp7ULHMu1itle1wwRVUkcmf6QWH9W7n2zHUjHvorVLY6sg4ktspazPiYnZb8wC+ru28Zsqsk7oKvXVl9Kzk5sE3psf0A5f1Z94nZZfZxDRa7shlccBs9R6En/AEgap499DnHaIpd3Lro1M1tuf3nSQlqaWVl0tjcn08LC17B8tnPHtBI9iwlqDZ5UWd3EY3NLTxNI7EdwV1mpK2luVMyopZ4aimkGWyRPD2OHkRyK1p3i9msVstsuobbTg24uxVwsHKncTgPHg0nkR2JHY8rlGbNy4Zla3FiluJjHd03qrhZLnR6P2gVzqm1zOENHd6h2ZKZx5NZM4/GYegeebe+RzG9YIIBC426rp2NqZMAEZPJdFd0PaVPtB2UU1PcJzNdbBL9bpnuOXSMDQYnnxJYcE9ywrzOx1Fd7D9Ri3Nvu5Gfsp1TCLNLxERMeaAueSiuFMIAidEQFURMIC9QohV5oAfaiKIAiIgLhB7FFcoAVEQoC4UREAToiYQBVREA6IhRAEKBEBcJhREBfcoiIAiIgCuECFAFEVCAIoiAIiIAqE7JgoCYVKdUKAnJERACiIgKUwovXXu+UWnqE1ldLwR8TY2NaOJ8sjjhrGN6uc48gAgP2r7bFco/Q1PE6mPx4gcNk8neI8uh7r4favtb09sZ0024XM8c8gMdFboMCSocB8Vo6NaOWXHkB54C+1rbrDarRUXK4OFLT0sLqidzyCImtbxOJPkAVyU2u7VbjtW1xcdQ1jntp5HGOip3HIp6cH1GAeOPWJ7uJVvEx++lz6Ir5F3dR5dWfT7Vd4zXG1CSeKtuT7fZ3E8Fst73RxAduNw9aQ+bjjyCws48LjwjGfBf26YvPNff7PNhuvNqjTNpqwyzUDSWur6h4hpgR1Ae74xHg3K3Eq6Y+yMp8VkvdmO+I+JX6U1TNRVDKimmkgqIzlksTyx7T4hw5hbHXDcc2pUVCaiE2GtmAz8GgrnB58gXsa39YWv1+0/ddLXWptN6t9Rb7lTO4ZaapZwvYe3LuD1BHI9khbXZyi9nsq5w5yWjZXYjvmaj0hWU1q1xPNfNPuIZ8Mf61ZSD77i/zrR3B9bwJ6HoXaLxQ362UlzttVFV0FZG2aCeF3EyRjhkOB8FxNW8u4btKqaqG96BrZnPipI/rjb+I/EYXBssY8uJzXAduJyzs7Fio95Ba9y3i5Db4JGYt4veRt+xa3xW+hhiuGrK2MvgpHu+1wR9PSy454z0aObsHoBlc5dd7TtWbS7g6t1Pe6q4OySyF7uGCIeDIh6rR7s+a+73rbVcLVt21WLjUyVBqpI6qnkf2gewcDB5NwW/mrC6s4mPCEFJc2/UhybpSm4voi8RHRMk9eazDs13Ytom1G2xXW122norPN/FV1ym9CyYeLGgFzh5gY819bfdyHanaKZ01LFZrqWjPoqOtLZD7BI1oPzqZ5FSfC5LZGqLGtpGFdHbQdT7P69tbpq+V1smByWwSkRv8nRn1XDyIK6I7u2187wmz++WvVFPTG60n+SV0cLOFlRBKwhsgbk4Jw4EDkC0EYyue9p2YatvOtYtGwWGtj1HI/gdR1EZjdEO735+KwDmXdMdMrplsF2B2fYpp98UTm1uoK5jfrhcCCBIRzDGN+5jaScdz1PgKWfKrh/3ehZxFZxfI5qbQrNVaU1dfNO1fEZ7VVyUrnH7sNPqu97cH3rZ76n3WytvOu6PJ9A6npJseDg6RufmKxVve22Oh29ajMQAFVDS1LgPvnQtBP+qs8bgWmZKWw6w1FJGQytqoaKJx7iJpc7HvlA9y7yJqWLxP10R0R1ka9tm5JKJnqocYWIawIRYk2lbyWzzZdUS0N2vBqbvF8a3W9np5mnwdghrD5OIKwnWfVBNPxzEUeirvNFnk6aqijJHsHF9KmhjWzW4xIpXVxemzcjKi1X03v46BulRHDeLVe7PxHBmdGyoib7Sw8X+qtktN6ps2sbRBdrFcqW422f4lRTSBzSe48iO4PMLmymdfxrR1CyM/hZ7ZEyAO6wLtV3t9B7M62e1RyT329wOLJaS3FpZC772SUnhB8QMkdwvIVyseoLZ7KcYLcmZ6TstD6/6oNdnSn4DoahjizyFRcHudj81gXuLB9UFpnysZftEyxRE+tLb60SEfmPa3Pzqw8G9f0kKyqvc3YTKxxsz266G2tRlunLw19e1vFJb6lvoalg8eA/GHm0keayQq0ouL1JaJ1JSW0RFcKYXJ6XCmF6jU2qrLoy0zXa/3Slttuh+PPUyBjc9gPEnsBklax6t39dHWqeSHT1hul64DgTyltJE7zHFl5HtaFLXTZZ8C2RzthD4mbZotIqP6oSDMPhegXCAnrBcwXAewxgLNmzHew2ebS6qG3srZbNeJjwx0V0aI/Su8GSAljj5ZBPgu54t0FuUTmN9cnpMziUVByFrrtw3rabYrrCLTk2lp7o+Sjjq/TsrWxAB7nDh4Sw9ODrnuoq65WPhgtsknOMFuRsVyUWlf++FUH/Z/V/pRn+GqPqhVvz/7AVmPymz/AA1P4K/8v8EXiavc3TVBWs+id97Z3qerio7tHcNOzyHAlrmNfT585GE8PtcAPNbJU1TDWU8VRTyxzQStD45I3BzXtPMEEciCO4UNlU63qa0SQnGfOL2fqivZYu2qbwWhtkLfQ325GW7ObxMtlE30tS4diW5AYD4uI8srmMXN6itnUpKK2zKCLRa+fVBq10zxY9EU7IQfVfX1pLiPNrG4Hzlf1Yfqg1UJmNv2iIXQk+tJb60hw8w17cH+kFZ8FfreiDxVW9bN50WM9lm3rRO1+Fw09c+G5Rt4pbbVt9FUxjx4ejh8ppIWTR9KrSi4vUlonUlJbRFcLWvbPvdU2x7XE+l5dJz3N8VPFUfCGVzYgeME44Sw9MeKbGN7im2xa4h0vFpOe2Pkppaj4Q+ubKB6MDlwhg658VJ4e3g7zXIj76HFwb5myiYyixttv2sx7F9FjUstqfdGGripfg7JxEfX4vW4iD04emFFGLk1FdSRtRW2ZI7pjC0pd9UMomgkbPqo4Gf+dGf4a2b2i7SmbP8AZncNavtzqxlHTRVBo2yhhdxuYMceDjHH4dlLPHsg0pLqcRuhJNxfQ+8ATGFpT/vhdH/2f1P6Ub/hp/vhdF/2fVP6Ub/hKTwV/wCX+DjxNXubqplacWz6oLYZp2tuWirpSwE8309XHOR+aQ36VsRsy206M2t0skumLuyephaHTUUzTFUQg93Rnnj5QyPNR2Y9la3KJ3C6E+UWZAyEwieahJCK5URAX2IFFcc0BOqvZEQEVCYTxQDmmETkUB66/Xyh03aau6XKdsFFSs45Hnny8AO5J5AdyVh7ZhV3Lavqqq1xeIXQWa2PdTWWgd8WN5HrzHxfghuexJA6L0u1S/S69uotFA4vtdHLwt4TyqJunF5gHkPeVnLSWnqfSmnLdaKdoEdJEGkj7p3Vzve4koDFG9vfZ7JsI1K2l4xPcPQ0ALASeGSQB/T5AcPeuXJoqon/AJNP/o3f7F22c1r+RAI8wv59EwdGt+YK7jZncRceHZVuxu9lvZyD2ObPH7Q9pum9N1UM7KKtqR8KcGOaRCwF8mDjkS1pGfNdcrTaqKx22kt1upIqShpYxFDBC0NZGwDAAHYLywxoOQ0Z9i/oqPJyXe09a0d0UKpMYC0l+qB2K3NotGXxsbGXZ881E5wHrSQhgeAfENd0/HK3I1Bf7ZpazVl4vFbDQ22jjMs9RO7DWNHj9AA5k8guWW8Vttm2161FbBHJT6ftzXQW6nk5O4SculeOznkDl2AA8VJgVylapLojjLnFVtP1MPrYfco9N9ni3+jzwfW+s9Lj73gH97hWvC3e3CNntRG7UOuqqItglZ9bKEuHx8ODpnDyBDG58Q7wWrmSUaZbKGNFuxaMe79Povs0U3ox9s+s9P6Q+fpJcfqwtYnZLXAHBIIWwG+NQX6n24XirvFMYqSrhhNukGSySnYwN5HxDuLiHYnzCwAusZfcx+hzf+JI7A7G9Z6d1rs+sdZpuqgkpIKSGnfBGRxUr2sDTE9vVpGMc+vUZC++xzXFrS+r79oq6MuenbvWWuvby9NSylhcPBw6OHkQQttNmO/lcKMw0W0C0NrYeTTc7Y0MlHm+Enhd+aR7FmX9nzi24c1/yX6suLWpcjej630nw/4f8Fg+Hei9D8I9GPSejzng4sZ4c88dMrySML5HQu0/SW0q3/DdMXykuLGjMkcbsSw/jxnDm+8L6monZBBJLK4MiY0ue4nkGjmT8yz2mnpltNPmjmPvWVxvO3/UcFMwzSxGloo42DLnvETBwjzLnYW/mxTZ+3Zls0sOnSG/C6eH0lW4fdVDzxyH3OOPY0LVTdr2fTbW9sWo9rF2hc6yU1znqKESDlPUucSwj5MbC0/jFvgVvXyAx4K9l2ajGlenX6lTGr80rX6gLXbe92y1uy3Q1NbrJO6nv+oHvghqGn1qeFoBkkb4O9ZrQexcT2WxSxrtM2EaL2uV1BWapoqqpnoInRQmKrkhDWuIJ5NIzzAVWmUIzTn0LNik4tR6nI1znzyOc4ufJI7JLiS5ziepPUkn3lZ409uc7V9QWuK4fWiit8crA9kNwrBFMQemWAHhPk7BW51m3QNlVivNvu1JZ6z4VQTsqYhLXyyM42ODm5aTgjIHIrOpwwE9Ar93aPRVL9ynXhetjOM2udA6i2b36WyamtslBcGNDw1zg5sjD0exw5OacHmPAhZM3Wdqtfs42n2qjE7/AKw36ojoq6nJPBxPPDHKB2c1xHPu0kL6HfO2m2TaBtDt9FYZ4qulsFPJTS1kRBZLK94c5rT901vCBnoSThYs2JaXq9Y7V9I2qjjc57rhDPI4AkRxROEj3HyDWn5wru+8o3YuqKuuC3UH6nQ3ew2j3DZxsirqm01Dqe63SdlugnYcOh4w4ve35QY1wB7Eg9ly0Jc8k4LiefiT/wD6um2+Voqv1hsbqJrdA6aostXHcnRMGXOia1zZMDuQ1/F7GlcxycjryPcd1B2cl3Ta67Jc3fGt9Da/Sm4frG+WWmr7rf7ZZ56iMSCjMT55IwRkB5BaAfEDOPFeo1huQ7R9N0r6q1y2zUETAXGKjkdFPy8GSAA+wOyv72fb7mudI2+ltt5oaHUVJTNbG2WdzoKngAwAZG5DjjuW58Stg9H79Oz6/PjgvlHc9PzOIHHPGKiAe18fMe9q5nPMg962v/fqdxjjTWuhifc73fbhVapfrfVFvqaKCxzuioKSpjdFI+qbyc8tODwszjzcfkrfoYxhes0/qO0aqtcNzslypbjb5hllRSyiRh8sjv5dQvZ45rNvtlbPikXaq41x4YgL0msNV23RGmbpqG7Teit1tgdPK4dSB0aPFxOAB3JC93zWoO/1que36N01puCQsZd6x9ROGnHEyBow0+XHID+aF5TX3tih7i2fBByNQdsG2C/7YtUS3a8Sujo43OFDb2vJipI+wA7uP3TupPlgL0+htmmrdpVdJSaWsVXc5IselfGA2KLPTjkcQ1vvOV6jTdjqNT6itNko/wDldzq4qSInoHSPDQfdnPuXYbQOhbNs50rb9O2OlbBQ0bA3OBxSv+6kee7nHmStjIyFjRUYIzaaXfJykzmvdt0La7aKB9Y7TUdU1gy6KirIppR7GA5PuysO01iulZeGWaC2Vkt3km+DtoWwu9MZM/E4MZ4vLsuvOp9sGg9G3R1q1Bqq0224NY2Q09VOGPDXdDjwK+Fh2p7BqfVdRqqLU2k2ajqIW08lwEzfTOjHQcX6s9SAATgBV4Z1uvNDZPPEr3ylo91u+ac1zpbZzQW7XtyjrbpGftLM8ctNDgcMUkmftjhz59hyycZWmO/Xj7M9J+Rqf+0lW9umdsOg9ZXVlqsGq7Tcri9jpBT0s4e8tb8Y48AtEd+r+Wil/I1P/XlUWHxPI3JabO8nSp0nswds92f3radqeDTlgZTvuc8UkrBUS+iZwsGXetg9lmB+5LtZYxzhRWZxAzwtuTcn52gL1G6PfbZp3bba6+73Gkt9Cyjq2uqKuZsUbSY8AFziBkldE5dtGzmCN8j9d6aDWDJP1zhP0OVnKybq7OGC5fQhoornDcupyQ1Lpi8aNvlXZb7b56C6UjuGWCYYLeWQQRyII5gjIIW3e4xtbrxd6vZ1cqh01A+B9ZbA85MDmEGSIfJIPEB2LXeKw9vW7SbBtO2qPuWnJPT26iooqL4WGlralzXPcXNzz4Rx8IJ648MLz9zG2VFdt6tFRAwmK30lXUTEDkGmIxjPtc9oUt33mO5TWnoiq8l2ovkbf70+3l+yDSsNDZpGfwrvIc2kLgHfBYxyfOR3IJAaDyLjnoCuZNfX1V0raiurqmaprKl5lmnneXvkceZc5x5krL29TqifVG3PVTpHuMFsmbbYGk8msiaAce15efeve7nuzKh2ibU/hN2p2VFqsEArnwSDLJZS4Nia4dwDl2O/CF5RCOPRxvr1OrZSut4Eej0JusbTtoFuiuVDZI6C3TAOiqLpN8H9KD0c1mC8jzxgrxtoO7LtJ2bW2W6XWysqrXCMy1dtmFQyIffPAAc1vmRjzXV8DCSRtljcx7Q5rhggjIIVL7Rs4t6Wiz4KGtb5nE+03avsNypbnbKuajuFI8SwVEDy18bh0II/9FdRd2fbe3bNooyV/o49TWotguEbBgSEj1JmjsHgHl2cHDphaNb1WzSi2Y7WayktUPoLRdYW3Glhb8WHiLmvY3yD2nA7Agdl7Pcz1TPp7bhaqNr3ClvkE1DKzPInhMjD7nR/rKt5MI3094vqV6JOqzgZ5G+v/LtW/k6k/quV3JR/x70f5Nq/oYpvr/y61p8bbR/1XK7k38u9H+Taz6Gr3+z/AEPF/mf1Om61n36f5EW/lel/vrZcrWffp/kRb+V6X6HrKxvxY/U0Lvw2c1n/AMW/8U/Quou8f/7r+ofybS/2kK5dP/i3/in6F1F3j+e6/qH8m0v9pCtTN/Er+v8A0UcX4ZnLw8srPWn9z/abqaxW29UFNZzRXGnjqoTJcA13A9oc3I4eRweiwK7v712E2LfyR6G/ItH/AGLV3mZE6UnH1OMWqNjakczNpG71tA2VW9ly1BZ2fWtzgw1lHO2eJjj0DyObcnkMjB8V8NpXVF20ZqCgvtkq30l0oZBJDK09+7SO7T0I6EFdXd4CrtVHsY1w+7mP4G61zRgPx60jm4jA+UXluPNcjBnl98vcS53wfGjzIqVUlws7LbOdZQbQdDWHU1Mz0cV1pGVBj/6txGHN9zg4e5fULB+6JDPBu/aRE+fXbUSMz2YaiQt/Us35WHZFRm4r0ZqwblFNjCEYUyi4OigKr+VeqAioKiIC55plB1TugGOaxztp1n/BDR0oglLLhcnfBKct6tyMvePY3PvIWRlqdvIXyS464prcxx9Ba6Zo4c8vSSes4/0QwID22xxkVx1Db4eBpbHmTB8GjI/XhbN9Fqju6VvpddOp3HmKKV4HsLB+1bXdOyABCqFEAXo9Xavs2hbBWX2/V0VFbKRvFJLIfma0dXOJ5ADmSvC2g7QtP7MtNVN/1FWtpqKH1WtHOSZ56Rxt+6cfD3nABK5fbcNu1/216g+E1pdR2OlcfgFrY/LIR9+8/dyEdXdugwOtrGxZXP5EF96qXzPabwG8Redtl39BH6Wg0nSScVJbuLm8jpLNjkX+A6N6DnknCyLN27/u33vbRcm1s/pbdpGmk4am4FvrTEdYoQfjO8XdG98nktv7uiHskZXnul7s9LsN2HXvbTqZtJRtkprHSvabhci31YG9eBv30hHRvbqeXXqnpbTNs0dp+3WGzUzaW2W+EQwRN7NHie5JySe5JK/LR+jrLoPT9HYrBQRUVspG4ZFGOp7ucernE8y48yveBYeTku+XyRq0UKpfM+K2nbKtNbWtPPs2o6IzRtJfBURnhmppMY443dj4joehBXPnazuh662dyVFbaqZ2o7AzLhU0MZM8bf8AvIeZ97eIexdPPepjKUZU6fh6ex7bRCzr1OIbmlrnNIIc04IPIg+BX8rrXtM3d9A7VGyzXmzRwXVw5XOgxDUg+bgMP9jwVpHtk3PdV7NaSrvVmnbqDTtO0ySvij4KqnYOZc+PmHNHdzT5kALWpzq7OT5MzrMWcOa5owBZL7c9N3OC6We4VNvuNOcx1NLIY5G+8dvLot9N2zey/h7V02jdc+hZfpx6OjuAaGx1xx/Fvb0bIe2PVd0wDyPPtfpBPLTTxTwSvinicHxyMOHMcDkOB7EEA+5S348Lo6fUjqulW9rodqLDp+16XtUFrs1BT0Fugz6Knp2BjGcTi44A8SSfevZEr4XYxrWTaHsv0vqOfHwquo2mox09M3LJP9ZpPvX3fRfOyTTaZtRaa2iK9E96+D2p7XtL7IbE656irQ2R4IpqKHDqiqcPuWM+lxwB3K8jFyekG0ltn1t5vdv07a6q6XWtgordSMMk1RUPDGRtHckrnrvE73FftA+Fab0bJPb9LnMc9XzZUV47jxjjPh8Zw64HJYx21bf9T7abnm4SfAbDA/ipbTA8mKPwc8/5x/yjyHYBYpYGue0SOLWEjicG5IHc47rYxcJQ89nNmbflOXlh0PbaX0reNaXykslht89fc6o8MUEDcnHck9GtHcnAC6Y7uW7pQ7FrRLW10kddqy4MDaqqaPUhZ19DFnnw5wS7q4gdAAFr1se3i9juxeyGisumNS1FxqAPhlznip/TVJHsk9VgPRg5DzPNZUt+/boW5V9JRRWDUQkqpo4Wl0cOAXODQT9s6c1xlu+zyxi1E7x1VDm5czaZzQ4EEAg+K1i2p7lGkNb1lRdNO1cumbnOS98cEQlpHuPMn0WQWZ+SQPJff7wu26j2L6JkrW8E2oK7igtlIefHJjnI4feMyCfE4Hda2bKN+2st9PDbtoduluDWANF2t7WtmI/7yHk1x82kexVKK7+HvKixbOrfBMx/qvcn2oae9JJboLdfqdvMGhqAyQj+bk4fmBKwRqHS970lcHW++2iutdcBn0NZA6JxHiM9R5jIXTyg3ttj1fTNmOr4ackZMdTSzxvHljg+hawb3e37Rm1K02axaV47hJRVRqZLk+B0bWN4C30cfEA45JBJwB6o69r+PkXykoziVLqalFyjIw7sI2wXXZDrihr6eqk+sdVMyK50Rd9rmiJwX46cbc8Qd15Y6FdbI3tkY17SC1wyCOhHiuKVjs9VqG82+0UMTpq24TspoY2jJLnuDR9K7TUFN8Doqen4uL0MbY8+OABn9Sg7SjFSi11ZLgyk00+h5JK0l+qDWqU02hbq1hMMb6ule7s1zhG9vzhrvmW7Sxnt62Ws2u7Nrpp9hZHcRipoJX9GVDMlufJwJafJ2VTxrFXbGTLN0OODijlps41DDpXaDpW+VI/yW23OnqZvJjZAXH5sldkqeeKqgjmhkbJDI0PY9hy1zSMgg9wRgrildLVW2S5VdtuNNLSV9HK6Genlbwvje04LSFsZsP3wb3swtNNp6/UD77YKYBlM5soZU0rPvGk8ntHYHBHTOMBambjyuSlDm0UMW5VtxmfV72GxvX+tdr9VddPaVuVxtjqGmjbUQBhYXNDuIc3A5GVq3q7ROotBXKK26ltNVa66WITsgqAA50ZJAdyJ5ZaR7lvVct/vREVEX0Gm7/VVmOUUwhiZnzfxu/UCtNtsu1u57ZdXnUNzo6WiMcDaWCnp8kRxNc5wBcebnZccnl7AusR3pKE46SPMhVPcovbZkncm4nbd6HmSBbqsn+i1ew36ee2mm8rPTf15V/G4zQ1FRtpkqo4JH09Na6gSyNYS2MuLA3iPQZwceOCrvz/y1Q/kem/ryrnf+L/Q9/tv1Nb6OgqrlOKejpZ6qdwJEUETpHkDqeFoJStt1VbKgwVtJPS1AAcYqiJ0bwD0PC4ArPW5d/L3asDn8BrOY/m1tDvibEHbQdIjVNmpg/Ulhjc5zWjL6ql6vj83N5vb+cO6ksylXcq5Lk/U4hj8dXGupz+0Nom67RdUUOnLKKY3KtJEYqp2ws5DJ9Y+QJwMk45Arppu+bv9u2IaeqW/CG1+oriGmurWsw3DfixRg8wwEk8+ZJyewHLK319TabhS3ChqZKespZWzwTxOw6N7TlrgfEEArq9u+bY6bbNoKnuZ9HFe6PFNc6ZvL0cwHxwPvHj1h7x2UHaPeKK18JLhcG3vqc594u1TWbbjrunmYWl9ykqG57slAkafmcsv7huqaS0bRr5ZKmRrJb1QtNPxH48kLi4tHmWucfzSvv8Aff2LVNzip9otlpnTPo4RT3WKJuXehafUnx3DclrvAcJ6ArR213OtslypLjbqqWkr6SRs0FRC7hfG9pyHA+Kmr1kY/Cn6aI57pu4mdtOoUJAGT2Wi2hN/qekt8VLrTTUlZVRtANda5GsMvm6J2AD+K7HkF4m0Xf0uF1ts9BoqwPtcszS36418rZJYwe7I2+qHeBcT7FmeBu3rRe8VVrez4nfe1XS6h2xR2+jkbI2x0DKSZzTnEznukc32gOaD55Xyu6daJrtt70l6JpLaJ81ZKfvWMifz+dzR71hqqqpq2pmqaqeSaome6SWWVxc57iclziepJOSV0D3JdjFTpSw1euL1Sugud7iEVDFIMOjpM8XGR2MhAOPvWjxWlc1j4/B8tFGtO67iMBb7EbmbcqkuaQHWykIJHUYcPpC/PcqlZFt5tzXuAMlvrGtB7ngacfMCsq7/ABs+q3z6f1zTRF9JHEbZWuaP4s8RdC4+R4ntz48PitPtI6rumh9S2zUNln9Bc7dKJoXkZaT0LXDu0gkEdwSvaV3uNwr20LH3d/E/c7Sk4WsW/XPGzYtTxueBJLeKYMaTzdhshOPcF8pYd/8A06+1MdfNKXaG6Nbh7aGSOSF7vFpc5rgPIg48Stbdv28LdtuVzow+jFssVuLnUtC2T0ji93IySOwAXY5AAYAz1ySqONiWq1OS0kWrsitwai+phh/xHewrqPvINLN2LUbXDBFupQR/5kK587FNntVtO2lWGwQQufTPnbPWvA5RUzCHSOPtA4R5uC6Lb1rQ3d91oAAAKaIAeH2+NWMySd1cfmQ4qarmzlUepWXLNvPbVtP2ihtNu1XJBQUMLKeCL4HA7gjaAGjJYScADqsRO5ZW/uzvcw2daq0Jpq+V1XqBtZcrfBVTCKsY1ge+MOPCPRnAyfFWsiyqtLvVsgohObag9Gm2uNrettpIiZqjUdbcoYXcUdO8hkLHffCNgDc+ZGV++yfZRf8Aa9qmCyWSB4iDgaytc0mKjizze49M4zhvUn3lb82jcl2T2ycS1FFdbkAc+jrK93D80YblZ001pWyaPtcdssNqo7ZQR8xBSRCNufE46nzPNU59oQjHhqRZjiSlLdjLpjT1FpPT1rsVtj9HQW2nZTQt7hrGgDPnyyfMr2qpRZTe+bNBLRERF4CpjzUVCAYTCivJAFMq9EQEJPCVpntWgdU6/wBRzOBJ+FFoPkGtA+hbmY5ELWHanaRDq+9cQ5yvbMPMOaP25QHyewqsFs2q2tr3ANq4Z6YfjFnEP6i3LzlaEQ1c1gvVDdKb+PoahlQzHctOce8ZHvW9NmutNfLVR3KjeJKWribNG4feuGQgPPXwG1na9pzY/puS732pzK/LaShiIM1XIPuWDw8XHk0dewP4bbtqTNkGz6v1MaF1dPG+OCCDj4WulkOG8R7NHU45+C5V681/f9pOo6m/ajr31ddN6oHSOFmeUcbejWjw95yeau4mI7vM+hWyMhV8l1Pc7Wtr+otsWpXXe+z8MEWW0dBE4+hpIz9y0dye7jzPkMAfAIi3IxUFwxXIyZScntmz+7juoV+0h9NqXV0VRb9JAh8NOQWTXH2d2RfK6u+5++XRO02qhsNtprbbaSGkoKVgihggYGMjaOgAHQLjm3aNrJrWtbq3UAa0AAC5TAADoB6yv2R9Z/hdqD9Jz/vKjfiWXS3KRcqyIVLSidmM+35lAuM/2R9Z/hdqD9Jz/vK/ZH1n+F2oP0nP+8q/2ZL8xL45ex2Xz5FMrjR9kjWf4X6g/Sc/7yfZH1n+F+of0nP+8vfsyX5h46PsdmM/+sL0mrNU2XR9iq7vf66norZTMLpZKhwAIx8UA/GJ6ADmc4XIH7I+s/wv1D+k5/3l6m6X663x7JLpc66vez4rquofMW+ziJwvY9mPfOR485a5I/K6VENVc62emh9DTSzySRRf9WwuJa33Age5eKBkgKL67Zns8u21HWVu01Z43GaqfmafGW00IPryuPYNHznA6larajHb6Iz9OT0jpHui0ktFu/6RbMDmZk8zfxHTyFv6lm4r1em7DR6XsFsstvj9HQ26njpoW+DGNDRnz5fOvaBfMWS4pOXubsI8MUgtLt9XZjrDXmqtK1OmtN3C7Q0tDPHNJSRhwjcZQQDkjtzW6PdTHF2XVNrqmpo8sgrI8LOR/wDuddq/4AXz/Qj/AGp/uddq/wCAF8/0I/eXW/hGegV4R4BXPtKz2RV8FD3OR43ddq/4A3z/AELf3l7TTm73tSpdQ2iefQt7jhirIJHvMLcNaJGkk+t2AXVzhb4JgY6I+0bGtaR6sKCe9mINtu7zprbbSQy3CSehvtJGY6W5QesWNLieB7DyezJzjkR2IWkGtNzfajpaeU0Nrgv9C0+rPbJhxkecT8OB8hn2rp/lCM9VXpy7KlpdCWzHhY9vqcdarZBtCoJfRVGh9Sxv8PrbMfoavf6d3btqmp52R0mirpTtf/nrhGKWMDxJkI/UCutWOaEc1ZfaU9coohWDH1ZrNu7bp1JsqrYtS6kqoLlqprCIGwA/B6LiGCWk83vIJHEQMAnA7rZrAwphFQsslZLim+ZahCMFqIV9qiLg7MJbcN2fS+2ZpuDibTqZjAxlzp2B3pAOjZWcuMDschw7HHJaU6u3O9qumJ5fg1mhvlI0+rPa52uLh/Nv4XD5iuoaYHPKtU5llS0uaILMaFj2+pyOpd3batWTiGPQN9a4nGZYBG3+k4gfrWZdne4nq281UVRrO4UtitwOX09K8VFU8eAI9Rnty7Hgty9S7Z9I6TvFVablV1DK2l4fSMjpXvAy0OHMDB5EL7ujqoq6kgqYSTFOxsjCRg8JGRy9hUk+0LZLS5EccOtPb5nzegNnOnNmNgisumrcyjo2es92eKSd/d8jzzc4+J9gwFqlvUbvev8AadtOZe9NWeGrtzbdBT+lfWRRHja55Iw4g/dDmt2CvltabQLHoKGjlvU00TKt7mRGKF0mS0ZOcdOqr1XzrnxrmyedUZx4X0NQd2bdy2i7ONrNBf8AUVlhpbXDSVMTpWVsUpDnsw0cLST1W8zhxAgr0OkNY2nW9rfcrPLJLSsldCXSRlh4gATyPtC98V5ddK2XFIV1quPCjQDbducaqm19XXDZ/aaepsFx/wAp9CaqOH4JK4njjAcR6ufWGOgOOy8nYPsT227Hdf0d5bp+F9oqMU1ypWXKD7bAT8YDi+Mw+s32Edyt9l8TrHa1pXQ0vwe53DirsZ+CUzPSygeYHJvvIU3jbHDu5JNEfhoKXGup9o+Js0bmSMa5jgQ5rhkEeYWoe2Dcdteo6uou+gq2Cy1kpL32yoaTSOceZ4HDJi9mC3wwssUe81o+om4Jqe60zCcCR8DXD3hrif1LKtj1Ba9TW+OvtNbDWUj+QkidnB8COoPkeagqtnU9wZLOuNi1JHLe9bqm12xylj9H1FY3tJQTxTtPzOz84X6WHdP2uX6ZrBpOWgjPWW4zxwtb7uIu+YLqrgeCYx4K59o266IreCr9zUzY1uS2fSNZTXnW9XBfrlA4PioYmEUcTh0LuLnKR4EBvkVtm0BoAAwB4IrhU7LZ2vc3sswrjBaij119sVu1NaKy03ejhrbbWxmKenmblkjT2P8At6g8wtFNqO4pfqCtmrNAV8Fxtz3FzbdXS+iqIh962Q+q8DxPCfb1W/nRF1TkTpe4M8sqjYvMjkvVbs21ujnML9CXV7gcZh9HI3+k1+F9lo7cs2oakqI/rpRUenqJ3xpq6dskgHlFGSSfaR7V00wPAKjwVl9o2tckkQLCrT5mMdjGw3TexSySUdoa+quVVg1lynA9LUEdBgcmsHPDR7Tk81/e8DpG7a72Ram0/YqZtTda6FjIInSNjDiJWOPrO5Dk09VkzooqfeS4+N9SzwLh4V0OXZ3N9sBz/wAG6X9JQfvLo1szstZpzZ5pa0XGMRV9vttPTTxtcHBr2Rta4ZHI8weYX1SuMqW/KnckpehHVRGp7iRXsorlVyYmUREAV8FFeyAdFMK80BQEVA8kxzU6IClAoiAvisI7frNLBT0eoadhdGwfBaojsCcscfLJLfzgs3BeHdbZS3q3VVvroWzUlVGYpI3dHNIwUBoPXVXpXFZv3edo7aCT+Cdzl4YJnl9BI48mvPN0We2TzHnkdwsfbQNmVw0Jevg0jZJ7ZO4mlrCOTx947wePDv1HfHoKS1v42uAcHAggt5YKAzrvi2S56i2MVNFaLdWXCsNwpXiCjgdLIQHnJ4WgnAXPH7E2v/wH1N+i5/3V0w2c7UjPSwWzUUoZUtAbHWv5Nk8A/wAHefQ9+ay60hwyDyPMHKuY+ZKmPClsrXYytlxNnHH7E2v/AMB9S/ouf91PsTa//AfU36Ln/dXYS5XGltFDUV1ZKY6anYZJHhrncLR1OACVj6q3g9mVG3in1lbY2+Jc/wDdVmPaFkvhhsgeHBdZHL37Euv/AMB9Tfouf91PsS6+P/QfUv6Ln/dXTI70GyIcv4c23PskP91fS6N2w6F2g1k1FprU9BcayJvE6njeWycPiGuAJHmM4Xrzrktuv+TxYlb5KZyo+xLr/wDAfUv6Ln/dT7Euv/wH1L+i5/3V2O5FMeZXH2nL8p34GPuccfsS6/8AwH1N+i5/3U+xJr8/9B9S/ouf91djl8hr/afpTZla/rhqe8wUEbgfRREl00x8GRj1ne4Y8V6u0pyelE8eFFc3I5J1ez3V9A/gqtKX6B3hJbZh/dXkWzZfre8ytit+j7/UvdyAZbpsfOW4XReDfK2QTMDnahq4T97JbqgEfM0rwrnvrbJrfGXU9xulwd95S2+QE+9/CFL4vI/0/wCSPw9P5zVrQO5TtF1TPFJfYqbTVuJBc+reJZyPkxMJ5/jOC3q2SbF9L7G7I6gsFM51VOAauvnIdPUuHTiPYDs0YA9vNY+2b7eNQ7crzJFpDTMlo0tRvxWXy6OD3k9fRQxN9UyHxLiGjmQeQOwnZUsq66T4bOXyLVFVcfND9y4KiIqZZLzU6rw6ihknJ4a6qi/my39rSvV1GmqqcEDUt6i/m3QD6YkB9DyUGPJfFzaDuEuQNcamYD4Pp/8ACXrZtmN1kyBtD1U32SxfsYEBkchMrE0+x69zZ/4y9Ve+Vv7ML1lRsJvk/wD8zNQY8HFx+iQIDNefb8yuVr9Pu53mYnO0K5Pz/wBY2Q//ANV4M27Pe3dNbSO/Hhk/xEBsa6RrPjOAHmcL8H3Cjj+PUwN9sjR+1a0Tbr19f01RSyfzkUv7xXhv3WtR8+G92l34zJR+woDZqTUVoi/jLpQs/GqGD9q8d+sNPMHrX21tHnWR/vLWOTdc1U34tfZH+18g/uLx37susWfFks7vxahw+liA2ak2g6Ti5v1NZxj/AO8j/wBq8ObavomAZfqi1Y+TUB30LWh+7frhnxYbY78Wrx9LV+Lt3rXsfS3Ur/xayP8AbhAbOUO1fRdzraeipNRUU9VUSCKKNjiS9xOAByX2Geq1M0ZsU1vZtYWG4VlojbSUlbFLLIKqN3C1rgScB2Sts+g6oDSPb2T9lPUfsi/sWLcfTBzpu0Z/+jh/s2rTfb4MbUtRn+a/sWLcjS5H8G7Pz/8Ag4f7NqA9sMrXfes/5s0z/wCJn/qNWxGcha771n/Nmmf/ABM39RqA+g3Yv5Oqn8pTf1WLNA5rC+7Hy2d1P5Rm/qsWaMjyQGO9s+u5dB6NmqaNwFzq3impSRngcQSX4+S0E+3C1p2W7Ma3andqyeqrJIbfA4Oqqv48skjufCM9XHqSennlZb3qKSZ+n7BVNa408NY9j8dAXM9XP9EpusXSkOnb1bA5ja6Kr+EOZn1nRuY1od7AWkIDyrxuwaemt722q4V9NXNb6klRIJWOPym4GB7F+2xDZNfdEVdXdLtXGnM7TEbdAQ9j8Hk956Z7jHPB5nss3ZwvGt9zo7tT/CKGqhqYOJzPSQvD28QOCMjuCgP3ke2KN0jjhrQST5BY9bt12fvx/wAIowT99BKP7q+/q43TUs8bPjPY5oz4kLUKLdx1w7AdDbY/bV5+hqA2GZtq0C/pqWj/ADmvH0tX7x7X9DSnDdUW386XH0ha9M3adaPPrT2hntqHn+4v3Zuw6tcRxXGzt/8ANkP9xAbFxbStHT/E1PaD/wDlsH7V5ketdMy82ahtLvZWR/7Vrmzdc1E7+Mvdqb7GyO/YF+zN1S6O/jNQ0A/FpXn9qA2NZqixyfEvFud7KqM/tXkx3e3y/ErqZ34szT+1a5R7qE3+c1NTj8WhJ/vrzIt1GAc5NUPJ+RQtH0vQGxTJ4pPiyMd7HAr9Fr/FutW9mOPU9xI8I4WN/aV50O7PaIv+kt9/NkY39iAzllFh2Hd4s8WD/CTU2fFtaG/Q1e2ptiVrpscOo9Vkjv8AXV4+gIDJqL4en2Z0dOMNv2pz+Nd5f9q9hBomnh6Xe/v/AB7pMf2oD6bumML1VPYIYDkVlyd/OVkjvpK9mxgjaGguOO7jkoD+wFOiIgHVUBQL+soCIQmVEAV8FEQFyor1UQHi3O1Ud6oZqG4U0VTSTN4XxStyHD/13WGtR7GK238c2nJI6qnHMUdU7hlb5Nk6O/OwflFZvRAaRasmvdhkMV0tlXb85x6aItB9jvin3FfzpDbxqDRT2wwyi4W0HnSVLiWtHyHdW/rHkt3JoY6iJ0UsbJI3DBa9oIPuK+QueybQ95dxVmlrU5/XiZTiMn3twgPmNFbwukNXiOnqKk2a4O5egriGscfkyfFPvwfJYI3j91eS4SVGsNBxOkEuZayzw8w7PMywAePUsHtb4LYWTd92bykl2mIOfYTSgf119bpjRVk0bTOprHRuo6Z3+abNI9g9jXOIHuUtN0qpcUSOyuNi1I5FSaXq48l8b2kdQQQQvDbDV2qpiq6eeamqoHB8c0Tyx8bh0LXDmD7F0k22bulJrplTetNmGh1KRxSMf6sFYflY+K/5Y69/Ec/taWe56cutVa7zQT0NxpziSnnbwub4HzB7EZB7LboyY3LkZdtDqM4bLN93UulRBbta0rtQ25mGitjIZWsHmfiy+/B8ytqaPeo2T1enHXz+F1JDEwAOpJmubVtdj4voccRPsyPNcq5ebivyyubcCqb2uX0Pa8uyK0+ZuVtS37blcPTUGz+2fW+A5b9c7i0PnPmyLm1vtcXewLUe+6guup7pPdLzcaq4XGc5kqaqQve7yyeg8hyXrV+tLSz11TDTU0Ek9TM8RxxRNL3yOPRrWjmSfAKeqiupeREU7Z2PzM/HPgtgN3rdjvO1+rhu91bNbNGxuy+qxiWswebIQe3Yv6Dtk9MubBNyxzzS6h2lQ4bykgsIPXuDUOH9mPzj1C3cpqaGjgip6eJkMETQxkcbQ1rGgYAAHIADsFSys9LyVfuWqMTfms/Y9fpvTVp0hZKKy2ShhobXRM9HDTwtw1o/aSeZJ5k8yvaoix2982aRcqKhRAEREARFepQDsplFeiAiIiAJ0REBcplREBUyh59096AidlcKIDTTbhYLrW7UL9NTWuvqIXmLD4qV72n7SwciBgr8qbaBtUpIYYIp70yKFgYxgt3INAwB/F+C3QT5/nQGvOxjWGu73rM0uo57i63/AASR/DUUfom8YLcetwDnzPLK8reetlZc7dpxtJR1VS6OomLhBC6ThHA3rwg4WfRyTqgNHdN33aJpKhdQ2aO80lI6QymJtA5w4iBk+swnsF9Ja9oW1KS50TKipvRhfPG14NvwOEuAOftfLllbe48ynzoD0mrNMUestP1tmrw4U9S3HG340bgctc3zBAK1Cvuz7W+yu8/DKJtaWQk+iudvaXMc35QGeHPdrhj2rdjoiA0mrtqW0bU1KbWbhXTNmHo3R0lIGSPB7EsblZg2BbMtR6XlnvF4nqKCGoZwstfH8c9nyt6AjsOvj4LPOAOgxnwTGEAQIiAvJFFcoB2TKclEA6KkqY5IUAJV7KIgCdEVwgIiYRAXKidkKAvJRXqogGFQU96IBhRXKFARFQhQERXKICK+5RX3oCDqqhTugIr71EQFwsf7VNjml9rtn+BX6jxVRtIpq+DDaimPyXdx4tOQfDusgck5r2MnF7i+Z44qS0zlNtp3cdXbHamWqqoTctOF+IrtSsPA0dhK3rG72+qexWG124qKeGrgkgqImTQytLHxyNDmvaeoIPIjyWAa3c12Y1us2382+oioj6z7NFLw0b5M54sD1g3rlgIb9C1ae0VrVqM+3C5+Q0O2UbDNYbYa8RWKgMdtY7hnulSC2mh8RxdXu+S3J8cdV0Q2L7t+ktjlNHU00X1y1G5nDLdqpg9Jz6tib0jb7OZ7krLNttlFZ6GnoLfSwUlFTtDIoIIwyONo7Bo5ALy1UyMyd3LoizTjRr59WToEVUVQsBFcJhAFFcogIiK9EAz5KJ1VCAiFXkogHRX3IiAe5RMogHRFQEKAiuPNCEwgHRRXHmogLlOSiICnCiYTsgKR5qIiAdUREAVwonVAXkplFcckBEREAVUVQDPLogUVQEVU+lUIB0TmnvQoAFERAEREBceaYQJ0QD3Jz7JzQICK4wnbmphAXGEymEQDCiIgHVE9ipKAivNMp1QDKY+dROqApUyv6HRQFARU9E5JhARERAXsgyoiAqd0JUQBERAFc8lEQFBTqorywgIivZTKAK+1TKvJARERAXKmUTHJACmVcclEBeSIiAEclE7IgLlFEKAqc1FeiAYTsnVRAVOhURAVCoiAK4TKZQA9EwomEBeic1AnRAO6IiAvZOqiIAr06qK9kARMZUQDqmURAOnNUFQczhXKAiucp3UQAjCvVREAwivYKICqckTwQBEHQIgLhAor2QEVBURAEwip6oBhREQFHRD4qIgCqiIAqoOgRAEREAwiKlARXqor2QEV5KIEATKpUQAor3QICK4UV7ICIhQdEBcKK9yogCuFEQFKiFEAVURAEX9Dov5QBFQp3QFwmFE7oAmURAEREAxlXCiICgJhREBcKYTuFR1QE6Iig7oCop3VQBXuoiA//9k=" alt="2S Group LLC" width="150" height="50"></a>
+    <ul>
+      <li><a href="#about" data-i18n="n1">About</a></li>
+      <li><a href="#services" data-i18n="n2">Services</a></li>
+      <li><a href="#ehs" data-i18n="n3">Safety</a></li>
+      <li><a href="#quality" data-i18n="n4">Quality</a></li>
+      <li><a href="#team" data-i18n="n5">Team</a></li>
+      <li><a href="#contact" data-i18n="n6">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-lang="ka" aria-pressed="false">ქარ</button>
+        <button type="button" data-lang="ru" aria-pressed="false">РУ</button>
+      </div>
+      <a class="btn sm" href="#contact" data-i18n="cta">Request service</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <div class="tag" data-i18n="h_tag">Industrial maintenance · Engineering · Spare parts</div>
+      <h1 data-i18n="h_title">Reliable equipment. <em>Safe work.</em> One accountable team.</h1>
+      <p class="lead" data-i18n="h_lead">2S Group LLC maintains and repairs industrial pumps, diesel engines and material handling equipment, supplies spare parts and delivers automation, electrical and welding works. Every task is carried out by certified specialists, planned with a risk assessment and supervised to high quality and EHS standards.</p>
+      <div class="cta">
+        <a class="btn" href="#contact" data-i18n="h_b1">Request service</a>
+        <a class="btn ghost" href="#ehs" data-i18n="h_b2">How we work safely</a>
+      </div>
+    </div>
+    <svg viewBox="0 0 560 400" role="img" aria-label="Technical drawing of a diesel driven pump set">
+      <rect x="40" y="300" width="480" height="22" fill="#163d78" stroke="#6f86ab"/>
+      <rect x="60" y="322" width="20" height="30" fill="#0a2246" stroke="#6f86ab"/><rect x="480" y="322" width="20" height="30" fill="#0a2246" stroke="#6f86ab"/>
+      <rect x="70" y="170" width="190" height="130" rx="6" fill="#e9eef5"/>
+      <rect x="86" y="140" width="158" height="34" rx="4" fill="#c7d1de"/>
+      <g fill="#8a9099"><rect x="96" y="148" width="22" height="18" rx="2"/><rect x="126" y="148" width="22" height="18" rx="2"/><rect x="156" y="148" width="22" height="18" rx="2"/><rect x="186" y="148" width="22" height="18" rx="2"/><rect x="216" y="148" width="18" height="18" rx="2"/></g>
+      <g stroke="#a7b1be" stroke-width="3"><line x1="90" y1="196" x2="240" y2="196"/><line x1="90" y1="214" x2="240" y2="214"/><line x1="90" y1="232" x2="240" y2="232"/></g>
+      <circle cx="110" cy="265" r="20" fill="#0d2a55" stroke="#6f86ab" stroke-width="3"/>
+      <rect x="40" y="190" width="30" height="80" rx="3" fill="#163d78" stroke="#6f86ab"/>
+      <path d="M200 140 V100 H230" fill="none" stroke="#8a9099" stroke-width="10" stroke-linecap="round"/>
+      <rect x="260" y="222" width="40" height="34" fill="#163d78" stroke="#f5a54a"/>
+      <line x1="280" y1="222" x2="280" y2="256" stroke="#f5a54a" stroke-dasharray="3 3"/>
+      <circle cx="380" cy="238" r="62" fill="#163d78" stroke="#dfe7f2" stroke-width="2"/>
+      <circle cx="380" cy="238" r="38" fill="none" stroke="#dfe7f2" stroke-width="1.5" stroke-dasharray="5 4"/>
+      <circle cx="380" cy="238" r="10" fill="#f5a54a"/>
+      <g stroke="#dfe7f2" stroke-width="2" fill="none"><path d="M380 238 Q392 214 402 206"/><path d="M380 238 Q404 246 412 256"/><path d="M380 238 Q370 262 358 270"/><path d="M380 238 Q356 230 348 220"/></g>
+      <rect x="360" y="146" width="40" height="32" fill="#163d78" stroke="#dfe7f2" stroke-width="2"/>
+      <rect x="350" y="136" width="60" height="12" fill="#0d2a55" stroke="#dfe7f2"/>
+      <rect x="442" y="220" width="70" height="36" fill="#163d78" stroke="#dfe7f2" stroke-width="2"/>
+      <rect x="508" y="212" width="12" height="52" fill="#0d2a55" stroke="#dfe7f2"/>
+      <g stroke="#6f86ab" stroke-width="1"><line x1="70" y1="372" x2="520" y2="372"/><line x1="70" y1="366" x2="70" y2="378"/><line x1="520" y1="366" x2="520" y2="378"/><line x1="540" y1="136" x2="540" y2="300"/><line x1="534" y1="136" x2="546" y2="136"/><line x1="534" y1="300" x2="546" y2="300"/></g>
+      <g font-family="IBM Plex Mono, monospace" font-size="12" fill="#dfe7f2">
+        <line x1="165" y1="140" x2="120" y2="70" stroke="#f5a54a"/><circle cx="120" cy="70" r="3" fill="#f5a54a"/><text x="96" y="60">01</text>
+        <line x1="380" y1="176" x2="420" y2="70" stroke="#f5a54a"/><circle cx="420" cy="70" r="3" fill="#f5a54a"/><text x="410" y="60">02</text>
+        <line x1="280" y1="256" x2="300" y2="290" stroke="#f5a54a"/><text x="300" y="286">03</text>
+        <text x="250" y="392" fill="#6f86ab">2S-ASSY-01</text>
+      </g>
+      <g class="spark" stroke="#ffd27a" stroke-width="2" stroke-linecap="round"><line x1="300" y1="300" x2="290" y2="282"/><line x1="300" y1="300" x2="312" y2="284"/><line x1="300" y1="300" x2="300" y2="278"/></g>
+    </svg>
+  </div>
+  <div class="wrap badges">
+    <div><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f5a54a" stroke-width="2"><circle cx="12" cy="9" r="6"/><path d="M8.5 14L7 22l5-3 5 3-1.5-8"/></svg><span data-i18n="bd1">Certified specialists in every discipline</span></div>
+    <div><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f5a54a" stroke-width="2"><path d="M6 3h9l4 4v14H6z"/><path d="M9 12l2 2 4-4"/></svg><span data-i18n="bd2">EHS meeting, RA and PTW for risky work</span></div>
+    <div><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f5a54a" stroke-width="2"><path d="M4 14a8 8 0 0116 0v2H4z"/><path d="M12 6V3M2 18h20"/></svg><span data-i18n="bd3">Supervision and EHS representative on site</span></div>
+    <div><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f5a54a" stroke-width="2"><circle cx="8" cy="8" r="3"/><circle cx="16" cy="8" r="3"/><path d="M2 20a6 6 0 0112 0M10 20a6 6 0 0112 0"/></svg><span data-i18n="bd4">Full team support from request to handover</span></div>
+  </div>
+</div>
+
+<div class="strip">
+  <div class="wrap">
+    <div><b>9</b><small data-i18n="s1">service disciplines</small></div>
+    <div><b>100%</b><small data-i18n="s2">of risky jobs under PTW and risk assessment</small></div>
+    <div><b>1</b><small data-i18n="s3">contract, one point of contact, one report</small></div>
+    <div><b>2026</b><small data-i18n="s4">registered in Georgia</small></div>
+  </div>
+</div>
+
+<!-- 01 ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-num">01</div>
+      <div><div class="tag" data-i18n="a_tag">About us</div><h2 data-i18n="a_title">A new company built on long careers</h2></div>
+    </div>
+    <div class="story">
+      <div class="body">
+        <p data-i18n="a_p1">2S Group LLC was registered in Georgia in 2026 with one goal: a plant, port or terminal should be able to call one company and get the right expert for any machine on site.</p>
+        <p data-i18n="a_p2">The company is new. The experience behind it is not. Our specialists built their careers maintaining pumps, engines, forklifts, reach stackers, cranes and electrical systems at ports, oil terminals, food and beverage plants and heavy industry.</p>
+        <p data-i18n="a_p3">Instead of one general team, 2S Group works through signed contracts with certified specialists in every discipline: pump technicians, diesel mechanics, diagnostics engineers, electricians, automation engineers and certified welders. Each job gets the depth of a specialist with the simplicity of one supplier.</p>
+        <p data-i18n="a_p4">We combine this field experience with modern maintenance management: planning, risk control, documented work and data that helps you make decisions.</p>
+      </div>
+      <ol class="timeline">
+        <li><div class="when" data-i18n="t1w">Before 2026</div><h3 data-i18n="t1h">Years in the field</h3><p data-i18n="t1p">Our specialists gain hands-on experience in maintenance, reliability, planning and CMMS at industrial and port operations.</p></li>
+        <li><div class="when">2026</div><h3 data-i18n="t2h">2S Group LLC registered</h3><p data-i18n="t2p">The company is founded in Georgia to bring these skills together under one name.</p></li>
+        <li><div class="when">2026</div><h3 data-i18n="t3h">Specialist network contracted</h3><p data-i18n="t3p">Contracts signed with certified specialists for mechanical, electrical, automation, diagnostics and welding work.</p></li>
+        <li class="now"><div class="when" data-i18n="t4w">Today</div><h3 data-i18n="t4h">Ready for your site</h3><p data-i18n="t4p">Planned maintenance, breakdown repair, diagnostics, spare parts and projects for industrial and logistics customers.</p></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- 02 SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-num">02</div>
+      <div><div class="tag" data-i18n="sv_tag">Services</div><h2 data-i18n="sv_title">What we do</h2></div>
+      <p class="lead" data-i18n="sv_lead">From a single seal replacement to a maintenance contract for your whole site. Each service line is led by a specialist certified for that work.</p>
+    </div>
+    <div class="grid">
+      <article class="card">
+        <div class="pic"><svg viewBox="0 0 200 110" aria-hidden="true"><circle cx="100" cy="58" r="38" fill="#0d2a55" stroke="#dfe7f2" stroke-width="2"/><circle cx="100" cy="58" r="8" fill="#f5a54a"/><g stroke="#dfe7f2" stroke-width="2" fill="none"><path d="M100 58 Q112 38 122 34"/><path d="M100 58 Q122 66 128 78"/><path d="M100 58 Q88 80 76 84"/><path d="M100 58 Q78 50 72 38"/></g><rect x="86" y="6" width="28" height="16" fill="#0d2a55" stroke="#dfe7f2"/><rect x="138" y="48" width="50" height="20" fill="#0d2a55" stroke="#dfe7f2"/><rect x="12" y="50" width="50" height="16" fill="#c7d1de"/></svg></div>
+        <div class="txt"><span class="code">SVC-01</span><h3 data-i18n="c1h">Industrial pumps</h3><p data-i18n="c1p">Repair, overhaul and maintenance of centrifugal, hygienic, multistage, positive displacement and booster pumps.</p>
+          <ul><li data-i18n="c1a">Mechanical seal and bearing replacement</li><li data-i18n="c1b">Impeller, shaft, wear ring and casing repair</li><li data-i18n="c1c">Laser alignment, vibration and performance testing</li></ul></div>
+      </article>
+      <article class="card">
+        <div class="pic"><svg viewBox="0 0 200 110" aria-hidden="true"><rect x="40" y="38" width="120" height="58" rx="4" fill="#e9eef5"/><rect x="50" y="20" width="100" height="22" rx="3" fill="#c7d1de"/><g fill="#8a9099"><rect x="58" y="25" width="16" height="12"/><rect x="80" y="25" width="16" height="12"/><rect x="102" y="25" width="16" height="12"/><rect x="124" y="25" width="16" height="12"/></g><g stroke="#a7b1be" stroke-width="3"><line x1="50" y1="56" x2="150" y2="56"/><line x1="50" y1="70" x2="150" y2="70"/></g><circle cx="60" cy="84" r="9" fill="#0d2a55"/><rect x="20" y="48" width="20" height="40" fill="#0d2a55" stroke="#f5a54a"/></svg></div>
+        <div class="txt"><span class="code">SVC-02</span><h3 data-i18n="c2h">Diesel engines</h3><p data-i18n="c2p">Service, repair and overhaul of engines in industrial plants, marine auxiliaries and mobile equipment.</p>
+          <ul><li data-i18n="c2a">Scheduled service and oil analysis</li><li data-i18n="c2b">Fuel injection, turbocharger and cooling system repair</li><li data-i18n="c2c">Top-end and full engine overhaul</li></ul></div>
+      </article>
+      <article class="card">
+        <div class="pic"><svg viewBox="0 0 200 110" aria-hidden="true"><rect x="60" y="44" width="80" height="40" rx="4" fill="#e9eef5"/><rect x="92" y="22" width="40" height="26" fill="none" stroke="#dfe7f2" stroke-width="3"/><rect x="40" y="10" width="8" height="78" fill="#8a9099"/><rect x="48" y="72" width="40" height="5" fill="#f5a54a"/><rect x="48" y="84" width="40" height="5" fill="#f5a54a"/><circle cx="78" cy="90" r="11" fill="#0a2246" stroke="#6f86ab" stroke-width="3"/><circle cx="126" cy="90" r="11" fill="#0a2246" stroke="#6f86ab" stroke-width="3"/><rect x="140" y="56" width="16" height="24" fill="#c7d1de"/></svg></div>
+        <div class="txt"><span class="code">SVC-03</span><h3 data-i18n="c3h">Material handling and lifting</h3><p data-i18n="c3p">Forklifts, reach stackers, terminal tractors, cranes and heavy machinery.</p>
+          <ul><li data-i18n="c3a">Preventive maintenance programs</li><li data-i18n="c3b">Hydraulics, transmission, brakes and steering</li><li data-i18n="c3c">Breakdown response on site</li></ul></div>
+      </article>
+      <article class="card">
+        <div class="pic"><svg viewBox="0 0 200 110" aria-hidden="true"><rect x="30" y="14" width="140" height="82" rx="6" fill="#0d2a55" stroke="#dfe7f2" stroke-width="2"/><polyline points="40,70 60,70 70,40 82,84 94,30 106,70 160,70" fill="none" stroke="#f5a54a" stroke-width="2.5"/><g stroke="#2c4f84"><line x1="40" y1="50" x2="160" y2="50"/><line x1="40" y1="30" x2="160" y2="30"/></g><circle cx="150" cy="86" r="4" fill="#dfe7f2"/></svg></div>
+        <div class="txt"><span class="code">SVC-04</span><h3 data-i18n="c4h">Diagnostics</h3><p data-i18n="c4p">Find the root cause before it becomes a breakdown.</p>
+          <ul><li data-i18n="c4a">Engine and machine ECU fault reading</li><li data-i18n="c4b">Vibration, thermal and electrical measurements</li><li data-i18n="c4c">Written findings with a repair plan</li></ul></div>
+      </article>
+      <article class="card">
+        <div class="pic"><svg viewBox="0 0 200 110" aria-hidden="true"><g fill="#0d2a55" stroke="#dfe7f2" stroke-width="2"><rect x="30" y="50" width="50" height="44"/><rect x="84" y="50" width="50" height="44"/><rect x="57" y="10" width="50" height="40"/></g><circle cx="160" cy="64" r="22" fill="none" stroke="#f5a54a" stroke-width="6" stroke-dasharray="7 5"/><circle cx="160" cy="64" r="9" fill="#f5a54a"/><g stroke="#6f86ab"><line x1="40" y1="64" x2="70" y2="64"/><line x1="94" y1="64" x2="124" y2="64"/></g></svg></div>
+        <div class="txt"><span class="code">SVC-05</span><h3 data-i18n="c5h">Spare parts</h3><p data-i18n="c5p">Genuine and approved-quality parts sourced for your equipment, with full traceability.</p>
+          <ul><li data-i18n="c5a">Seals, bearings, filters, belts, hoses</li><li data-i18n="c5b">Engine, hydraulic and electrical components</li><li data-i18n="c5c">Critical spare parts lists for your fleet</li></ul></div>
+      </article>
+      <article class="card">
+        <div class="pic"><svg viewBox="0 0 200 110" aria-hidden="true"><rect x="36" y="12" width="128" height="86" rx="4" fill="#0d2a55" stroke="#dfe7f2" stroke-width="2"/><g fill="#0a2246" stroke="#6f86ab"><rect x="48" y="24" width="14" height="40"/><rect x="66" y="24" width="14" height="40"/><rect x="84" y="24" width="14" height="40"/></g><g fill="#dfe7f2"><circle cx="55" cy="30" r="2"/><circle cx="73" cy="30" r="2"/></g><circle cx="91" cy="30" r="2" fill="#f5a54a"/><rect x="108" y="24" width="44" height="28" fill="#0a2246" stroke="#dfe7f2"/><polyline points="112,46 122,36 132,42 148,28" fill="none" stroke="#f5a54a" stroke-width="2"/><g stroke="#6f86ab"><line x1="48" y1="78" x2="152" y2="78"/><line x1="48" y1="86" x2="120" y2="86"/></g></svg></div>
+        <div class="txt"><span class="code">SVC-06</span><h3 data-i18n="c6h">Automation</h3><p data-i18n="c6p">Control upgrades that make equipment safer, more efficient and easier to monitor.</p>
+          <ul><li data-i18n="c6a">PLC programming and troubleshooting</li><li data-i18n="c6b">VFD and soft starter installation</li><li data-i18n="c6c">Sensors, HMI and remote monitoring</li></ul></div>
+      </article>
+      <article class="card">
+        <div class="pic"><svg viewBox="0 0 200 110" aria-hidden="true"><rect x="60" y="10" width="80" height="90" rx="4" fill="#0d2a55" stroke="#dfe7f2" stroke-width="2"/><path d="M106 22 L86 58 H102 L92 90 L118 50 H102 Z" fill="#f5a54a"/><g stroke="#dfe7f2" stroke-width="2"><line x1="20" y1="40" x2="60" y2="40"/><line x1="20" y1="70" x2="60" y2="70"/><line x1="140" y1="40" x2="180" y2="40"/><line x1="140" y1="70" x2="180" y2="70"/></g></svg></div>
+        <div class="txt"><span class="code">SVC-07</span><h3 data-i18n="c7h">Electrical works</h3><p data-i18n="c7p">Industrial electrical installation, repair and testing.</p>
+          <ul><li data-i18n="c7a">Motors, control panels and cabling</li><li data-i18n="c7b">Insulation resistance and earthing tests</li><li data-i18n="c7c">Power distribution and lighting</li></ul></div>
+      </article>
+      <article class="card">
+        <div class="pic"><svg viewBox="0 0 200 110" aria-hidden="true"><rect x="20" y="74" width="80" height="16" fill="#2c3440"/><rect x="100" y="74" width="80" height="16" fill="#c7d1de"/><path d="M96 74 Q100 68 104 74" fill="#f5a54a"/><line x1="100" y1="70" x2="140" y2="20" stroke="#e9eef5" stroke-width="5" stroke-linecap="round"/><g class="spark" stroke="#ffd27a" stroke-width="2" stroke-linecap="round"><line x1="100" y1="70" x2="82" y2="56"/><line x1="100" y1="70" x2="88" y2="46"/><line x1="100" y1="70" x2="118" y2="54"/><line x1="100" y1="70" x2="76" y2="68"/><line x1="100" y1="70" x2="124" y2="66"/></g><circle cx="100" cy="70" r="5" fill="#fff4d6"/></svg></div>
+        <div class="txt"><span class="code">SVC-08</span><h3 data-i18n="c8h">Welding</h3><p data-i18n="c8p">Certified welding of carbon (black) steel and stainless steel.</p>
+          <ul><li data-i18n="c8a">Structural and repair welding</li><li data-i18n="c8b">Stainless and hygienic pipework</li><li data-i18n="c8c">On-site and workshop fabrication</li></ul></div>
+      </article>
+      <article class="card">
+        <div class="pic"><svg viewBox="0 0 200 110" aria-hidden="true"><rect x="40" y="10" width="120" height="92" rx="4" fill="#0d2a55" stroke="#dfe7f2" stroke-width="2"/><rect x="78" y="4" width="44" height="14" rx="3" fill="#f5a54a"/><g stroke-width="3" fill="none" stroke-linecap="round"><polyline points="56,36 62,42 72,30" stroke="#f5a54a"/><polyline points="56,58 62,64 72,52" stroke="#f5a54a"/><polyline points="56,80 62,86 72,74" stroke="#dfe7f2"/></g><g stroke="#6f86ab" stroke-width="2"><line x1="84" y1="36" x2="144" y2="36"/><line x1="84" y1="58" x2="144" y2="58"/><line x1="84" y1="80" x2="130" y2="80"/></g></svg></div>
+        <div class="txt"><span class="code">SVC-09</span><h3 data-i18n="c9h">Maintenance contracts</h3><p data-i18n="c9p">Planned maintenance for your whole site under one agreement.</p>
+          <ul><li data-i18n="c9a">PM schedules and job plans</li><li data-i18n="c9b">Agreed response times (SLA)</li><li data-i18n="c9c">Monthly reports and KPIs</li></ul></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 03 BRANDS -->
+<section id="brands">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-num">03</div>
+      <div><div class="tag" data-i18n="br_tag">Equipment we service</div><h2 data-i18n="br_title">Experience across leading brands</h2></div>
+      <p class="lead" data-i18n="br_lead">We work on equipment from the world's main manufacturers and follow their manuals, specifications and tolerances.</p>
+    </div>
+    <div class="brand-groups">
+      <div class="bg"><h3 data-i18n="br_c1">Pumps</h3><div class="brands"><span>Alfa Laval</span><span>Inoxpa</span><span>Grundfos</span><span>KSB</span><span>Wilo</span><span>Flowserve</span><span>Sulzer</span><span>Ebara</span><span>Lowara</span><span>Fristam</span><span>Pentair</span><span>Pedrollo</span></div></div>
+      <div class="bg"><h3 data-i18n="br_c2">Mechanical seals</h3><div class="brands"><span>EagleBurgmann</span><span>John Crane</span><span>Flowserve</span><span>AESSEAL</span></div></div>
+      <div class="bg"><h3 data-i18n="br_c3">Diesel engines</h3><div class="brands"><span>Caterpillar</span><span>Cummins</span><span>Perkins</span><span>Volvo Penta</span><span>Deutz</span><span>MTU</span></div></div>
+      <div class="bg"><h3 data-i18n="br_c4">Material handling and lifting</h3><div class="brands"><span>Hyster</span><span>Kalmar</span><span>Konecranes</span><span>Linde</span><span>Toyota</span><span>Liebherr</span><span>Terberg</span></div></div>
+    </div>
+    <p class="fine" data-i18n="br_fine">Brand names are trademarks of their owners and are listed only to show the equipment we service. 2S Group LLC is an independent service company and is not an authorized dealer of these manufacturers unless stated otherwise.</p>
+  </div>
+</section>
+
+<!-- 04 EHS -->
+<section id="ehs">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-num">04</div>
+      <div><div class="tag" data-i18n="e_tag">Environment, Health and Safety</div><h2 data-i18n="e_title">Safety is planned before work starts</h2></div>
+      <p class="lead" data-i18n="e_lead">No job is so urgent that it cannot be done safely. Every task is assessed for risk, and the level of control, supervision and EHS presence is set by the difficulty and hazard of the work.</p>
+    </div>
+    <div class="ctrl">
+      <div><b>EHS</b><h3 data-i18n="e1h">EHS meeting before every job</h3><p data-i18n="e1p">A pre-job meeting (toolbox talk) with the whole crew: scope, hazards, controls and emergency plan.</p></div>
+      <div><b>RA</b><h3 data-i18n="e2h">Risk assessment</h3><p data-i18n="e2p">A written risk assessment for every risky task, agreed with your site team before work begins.</p></div>
+      <div><b>PTW</b><h3 data-i18n="e3h">Permit to work</h3><p data-i18n="e3p">Hot work, confined spaces, work at height, electrical and lifting work only under a valid permit.</p></div>
+      <div><b>LOTO</b><h3 data-i18n="e4h">Isolation and lockout</h3><p data-i18n="e4p">Energy sources are isolated, locked and tagged, and zero energy is verified before work.</p></div>
+      <div><b>PPE</b><h3 data-i18n="e5h">Trained and equipped people</h3><p data-i18n="e5p">Certified specialists with the right PPE, tools and a site induction for your facility.</p></div>
+      <div><b>STOP</b><h3 data-i18n="e6h">Stop-work authority</h3><p data-i18n="e6p">Anyone on our team can stop the job if conditions change or something is unsafe.</p></div>
+    </div>
+    <div class="matrix">
+      <h3 data-i18n="m_title">Team and controls by task risk</h3>
+      <table>
+        <thead><tr><th data-i18n="m_c1">Risk level</th><th data-i18n="m_c2">Typical tasks</th><th data-i18n="m_c3">Team on site</th><th data-i18n="m_c4">Controls</th></tr></thead>
+        <tbody>
+          <tr class="l1"><td class="lv" data-i18n="l1n">Low</td><td data-i18n="l1e">Inspections, routine service, diagnostics</td><td data-i18n="l1t">Certified specialist(s)</td><td data-i18n="l1c">EHS meeting, site rules, PPE</td></tr>
+          <tr class="l2"><td class="lv" data-i18n="l2n">Medium</td><td data-i18n="l2e">Component replacement, electrical repair, pump overhaul on site</td><td data-i18n="l2t">Specialists with a supervisor</td><td data-i18n="l2c">EHS meeting, RA, PTW, LOTO</td></tr>
+          <tr class="l3"><td class="lv" data-i18n="l3n">High</td><td data-i18n="l3e">Hot work, confined space, work at height, heavy lifts, HV isolation</td><td data-i18n="l3t">Full team, supervisor and dedicated EHS representative</td><td data-i18n="l3c">EHS meeting, RA, method statement, PTW, LOTO, continuous EHS monitoring</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 05 QUALITY -->
+<section id="quality">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-num">05</div>
+      <div><div class="tag" data-i18n="q_tag">Quality</div><h2 data-i18n="q_title">High standards on every job</h2></div>
+      <p class="lead" data-i18n="q_lead">Quality is not checked only at the end. It is built into how we plan, execute and hand over the work.</p>
+    </div>
+    <div class="qgrid">
+      <div><span class="n">Q1</span><h3 data-i18n="q1h">OEM procedures</h3><p data-i18n="q1p">Work follows manufacturer manuals, specifications, torque values and tolerances.</p></div>
+      <div><span class="n">Q2</span><h3 data-i18n="q2h">Traceable parts</h3><p data-i18n="q2p">Genuine or approved-quality parts with a documented source for every job.</p></div>
+      <div><span class="n">Q3</span><h3 data-i18n="q3h">Calibrated tools</h3><p data-i18n="q3p">Measuring and test equipment is calibrated and fit for purpose.</p></div>
+      <div><span class="n">Q4</span><h3 data-i18n="q4h">Test before handover</h3><p data-i18n="q4p">Equipment is handed over to your operator only after it passes testing.</p></div>
+      <div><span class="n">Q5</span><h3 data-i18n="q5h">Full documentation</h3><p data-i18n="q5p">Service report, photos, parts used, measurements and recommendations after every job.</p></div>
+      <div><span class="n">Q6</span><h3 data-i18n="q6h">Root cause focus</h3><p data-i18n="q6p">Repeat failures are analysed so they are fixed once, not again and again.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 TEAM -->
+<section id="team">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-num">06</div>
+      <div><div class="tag" data-i18n="tm_tag">Full team support</div><h2 data-i18n="tm_title">You get a team, not just a technician</h2></div>
+      <p class="lead" data-i18n="tm_lead">Each job is staffed according to its scope and risk. You always know who is responsible.</p>
+    </div>
+    <div class="team">
+      <div class="role"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0116 0"/></svg></div><h3 data-i18n="r1h">Project manager</h3><p data-i18n="r1p">Your single point of contact. Owns scope, timing, cost and reporting.</p></div>
+      <div class="role"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg></div><h3 data-i18n="r2h">Planner</h3><p data-i18n="r2p">Prepares job plans, parts and resources so work starts on time.</p></div>
+      <div class="role"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M4 14a8 8 0 0116 0v2H4z"/><path d="M12 6V3M2 18h20"/></svg></div><h3 data-i18n="r3h">Site supervisor</h3><p data-i18n="r3p">Leads the crew on site, controls quality and coordinates with your team.</p></div>
+      <div class="role"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M14.7 6.3a4 4 0 00-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 005.4-5.4l-2.5 2.5-2.5-.5-.5-2.5z"/></svg></div><h3 data-i18n="r4h">Certified specialists</h3><p data-i18n="r4p">Mechanical, electrical, automation, diagnostics and welding experts.</p></div>
+      <div class="role ehs"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></div><h3 data-i18n="r5h">EHS representative</h3><p data-i18n="r5p">Present on high-risk work. Checks permits, controls and safe execution.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 PROCESS -->
+<section id="process">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-num">07</div>
+      <div><div class="tag" data-i18n="p_tag">How we work</div><h2 data-i18n="p_title">From request to handover</h2></div>
+    </div>
+    <div class="steps">
+      <div class="step"><b>01</b><h3 data-i18n="p1h">Request</h3><p data-i18n="p1p">You tell us the equipment, the problem and the urgency.</p></div>
+      <div class="step"><b>02</b><h3 data-i18n="p2h">Survey and diagnosis</h3><p data-i18n="p2p">A specialist inspects the equipment and finds the root cause.</p></div>
+      <div class="step"><b>03</b><h3 data-i18n="p3h">Quotation and plan</h3><p data-i18n="p3p">Clear scope, cost, timing, parts and team composition.</p></div>
+      <div class="step ehs"><b>04</b><h3 data-i18n="p4h">EHS preparation</h3><p data-i18n="p4p">EHS meeting, risk assessment and permit to work agreed with your site.</p></div>
+      <div class="step"><b>05</b><h3 data-i18n="p5h">Execution</h3><p data-i18n="p5p">Work done by certified specialists under supervision.</p></div>
+      <div class="step"><b>06</b><h3 data-i18n="p6h">Test, handover and report</h3><p data-i18n="p6p">Equipment tested with your operator, then a full service report.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 VALUE -->
+<section id="value">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-num">08</div>
+      <div><div class="tag" data-i18n="v_tag">Why 2S Group</div><h2 data-i18n="v_title">What leaders get from working with us</h2></div>
+      <p class="lead" data-i18n="v_lead">For CEOs, directors and maintenance managers who need problems solved, not explained.</p>
+    </div>
+    <div class="vgrid">
+      <div class="v"><h3 data-i18n="v1h">Less downtime</h3><p data-i18n="v1p">Fast diagnosis and the right specialist the first time bring equipment back to work sooner.</p></div>
+      <div class="v"><h3 data-i18n="v2h">One accountable contractor</h3><p data-i18n="v2p">One contract, one contact and one invoice across many disciplines.</p></div>
+      <div class="v"><h3 data-i18n="v3h">Safety you can audit</h3><p data-i18n="v3p">RA, PTW and EHS records are available for every risky job.</p></div>
+      <div class="v"><h3 data-i18n="v4h">Transparent costs</h3><p data-i18n="v4p">A clear quotation before work starts and no hidden extras.</p></div>
+      <div class="v"><h3 data-i18n="v5h">Data for decisions</h3><p data-i18n="v5p">Reports and recommendations that support your budget and replacement plans.</p></div>
+      <div class="v"><h3 data-i18n="v6h">Flexible capacity</h3><p data-i18n="v6p">From one technician for a day to a full team for a planned shutdown.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 09 INDUSTRIES -->
+<section id="industries">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-num">09</div>
+      <div><div class="tag" data-i18n="i_tag">Industries</div><h2 data-i18n="i_title">Where we work</h2></div>
+    </div>
+    <div class="inds">
+      <div class="ind"><h3 data-i18n="i1h">Ports and terminals</h3><p data-i18n="i1p">Reach stackers, forklifts, tractors, cranes, pumps and power.</p></div>
+      <div class="ind"><h3 data-i18n="i2h">Oil and gas</h3><p data-i18n="i2p">Transfer pumps, engines, electrical and instrumentation.</p></div>
+      <div class="ind"><h3 data-i18n="i3h">Food and beverage</h3><p data-i18n="i3p">Hygienic pumps, stainless pipework and utilities.</p></div>
+      <div class="ind"><h3 data-i18n="i4h">Manufacturing</h3><p data-i18n="i4p">Production lines, motors, drives and automation.</p></div>
+      <div class="ind"><h3 data-i18n="i5h">Water and utilities</h3><p data-i18n="i5p">Booster stations, pumping systems and generators.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 CONTACT -->
+<section id="contact" style="border-bottom:0">
+  <div class="wrap contact">
+    <div class="info">
+      <div class="sec-num">10</div>
+      <div class="tag" style="margin-top:14px" data-i18n="ct_tag">Contact</div>
+      <h2 style="margin-top:8px" data-i18n="ct_title">Tell us what needs fixing</h2>
+      <p class="lead" style="margin-top:16px" data-i18n="ct_lead">Send a request and we will reply with the specialist, the timing and a quote.</p>
+      <dl>
+        <dt data-i18n="d1">Phone</dt><dd><a href="tel:+995568142010">+995 568 14 20 10</a></dd>
+        <dt data-i18n="d2">Email</dt><dd><a href="mailto:sale@2sgroup.ge">sale@2sgroup.ge</a></dd>
+        <dt data-i18n="d3">Website</dt><dd>www.2sgroup.ge</dd>
+        <dt data-i18n="d4">Company ID</dt><dd>415121246</dd>
+        <dt data-i18n="d5">Location</dt><dd data-i18n="loc">Georgia</dd>
+      </dl>
+    </div>
+    <form id="reqForm" novalidate>
+      <div class="row2">
+        <label for="f-name"><span data-i18n="f1">Name</span><input id="f-name" name="name" required></label>
+        <label for="f-company"><span data-i18n="f2">Company</span><input id="f-company" name="company"></label>
+      </div>
+      <div class="row2">
+        <label for="f-phone"><span data-i18n="f3">Phone</span><input id="f-phone" name="phone" type="tel"></label>
+        <label for="f-email"><span data-i18n="f4">Email</span><input id="f-email" name="email" type="email"></label>
+      </div>
+      <label for="f-service"><span data-i18n="f5">Service</span>
+        <select id="f-service" name="service">
+          <option data-i18n="c1h">Industrial pumps</option><option data-i18n="c2h">Diesel engines</option><option data-i18n="c3h">Material handling and lifting</option><option data-i18n="c4h">Diagnostics</option><option data-i18n="c5h">Spare parts</option><option data-i18n="c6h">Automation</option><option data-i18n="c7h">Electrical works</option><option data-i18n="c8h">Welding</option><option data-i18n="c9h">Maintenance contracts</option>
+        </select>
+      </label>
+      <label for="f-msg"><span data-i18n="f6">Equipment and problem</span><textarea id="f-msg" name="message" data-i18n-ph="f6ph" placeholder="Make, model and what is happening"></textarea></label>
+      <button class="btn" type="submit" data-i18n="f7">Send request</button>
+      <div id="formMsg" role="status"></div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span data-i18n="ft1">© 2026 2S Group LLC. All rights reserved.</span>
+    <span><span data-i18n="d4">Company ID</span> 415121246 · +995 568 14 20 10 · sale@2sgroup.ge</span>
+  </div>
+</footer>
+
+<script>
+var T = {
+en: {
+  f6ph:"Make, model and what is happening",
+  msg_err:"Please add your name and a phone number or email.",
+  msg_ok:"Thank you. Online sending is not connected yet. Please email sale@2sgroup.ge or call +995 568 14 20 10."
+},
+ka: {
+  n1:"ჩვენ შესახებ", n2:"მომსახურება", n3:"უსაფრთხოება", n4:"ხარისხი", n5:"გუნდი", n6:"კონტაქტი", cta:"მომსახურების მოთხოვნა",
+  h_tag:"სამრეწველო ტექმომსახურება · ინჟინერია · სათადარიგო ნაწილები",
+  h_title:"საიმედო აღჭურვილობა. <em>უსაფრთხო სამუშაო.</em> ერთი პასუხისმგებელი გუნდი.",
+  h_lead:"შპს 2S Group ახორციელებს სამრეწველო ტუმბოების, დიზელის ძრავებისა და სატვირთო-ამწევი ტექნიკის ტექნიკურ მომსახურებას და შეკეთებას, აწვდის სათადარიგო ნაწილებს და ასრულებს ავტომატიზაციის, ელექტრო და შედუღების სამუშაოებს. ყველა დავალებას ასრულებენ სერტიფიცირებული სპეციალისტები, რისკების შეფასების საფუძველზე და ზედამხედველობით, ხარისხისა და შრომის უსაფრთხოების მაღალი სტანდარტებით.",
+  h_b1:"მომსახურების მოთხოვნა", h_b2:"როგორ ვმუშაობთ უსაფრთხოდ",
+  bd1:"სერტიფიცირებული სპეციალისტები ყველა მიმართულებით", bd2:"EHS შეხვედრა, რისკების შეფასება და სამუშაო ნებართვა რისკიანი სამუშაოებისთვის", bd3:"ზედამხედველი და EHS წარმომადგენელი ობიექტზე", bd4:"გუნდის სრული მხარდაჭერა მოთხოვნიდან ჩაბარებამდე",
+  s1:"მომსახურების მიმართულება", s2:"რისკიანი სამუშაოებისა სრულდება სამუშაო ნებართვით და რისკების შეფასებით", s3:"ხელშეკრულება, ერთი საკონტაქტო პირი, ერთი ანგარიში", s4:"რეგისტრირებულია საქართველოში",
+  a_tag:"ჩვენ შესახებ", a_title:"ახალი კომპანია მრავალწლიანი გამოცდილებით",
+  a_p1:"შპს 2S Group დარეგისტრირდა საქართველოში 2026 წელს ერთი მიზნით: ქარხანას, პორტს თუ ტერმინალს უნდა შეეძლოს ერთ კომპანიას დაუკავშირდეს და მიიღოს შესაბამისი ექსპერტი ობიექტზე არსებული ნებისმიერი დანადგარისთვის.",
+  a_p2:"კომპანია ახალია, თუმცა მის უკან მდგომი გამოცდილება მრავალწლიანია. ჩვენმა სპეციალისტებმა კარიერა ააშენეს ტუმბოების, ძრავების, ჩანგლიანი დამტვირთველების, რიჩსტაკერების, ამწეების და ელექტრო სისტემების მომსახურებაში პორტებში, ნავთობტერმინალებში, კვების და სასმელების საწარმოებსა და მძიმე მრეწველობაში.",
+  a_p3:"ერთი ზოგადი გუნდის ნაცვლად, 2S Group ხელშეკრულების საფუძველზე თანამშრომლობს სერტიფიცირებულ სპეციალისტებთან ყველა მიმართულებით: ტუმბოების ტექნიკოსები, დიზელის მექანიკოსები, დიაგნოსტიკის ინჟინრები, ელექტრიკოსები, ავტომატიზაციის ინჟინრები და სერტიფიცირებული შემდუღებლები. ყოველი სამუშაო სრულდება სპეციალისტის ცოდნით და ერთი მიმწოდებლის სიმარტივით.",
+  a_p4:"ამ პრაქტიკულ გამოცდილებას ვაერთიანებთ ტექმომსახურების თანამედროვე მართვასთან: დაგეგმვა, რისკების კონტროლი, დოკუმენტირებული სამუშაო და მონაცემები, რომლებიც გეხმარებათ გადაწყვეტილებების მიღებაში.",
+  t1w:"2026 წლამდე", t1h:"წლები საველე სამუშაოში", t1p:"ჩვენი სპეციალისტები იძენენ პრაქტიკულ გამოცდილებას ტექმომსახურებაში, საიმედოობაში, დაგეგმვასა და CMMS სისტემებში სამრეწველო და საპორტო ობიექტებზე.",
+  t2h:"შპს 2S Group დარეგისტრირდა", t2p:"კომპანია დაარსდა საქართველოში, რათა ეს უნარები ერთი სახელის ქვეშ გაერთიანდეს.",
+  t3h:"სპეციალისტების ქსელი", t3p:"ხელშეკრულებები გაფორმდა სერტიფიცირებულ სპეციალისტებთან მექანიკური, ელექტრო, ავტომატიზაციის, დიაგნოსტიკის და შედუღების სამუშაოებისთვის.",
+  t4w:"დღეს", t4h:"მზად ვართ თქვენი ობიექტისთვის", t4p:"გეგმიური ტექმომსახურება, ავარიული შეკეთება, დიაგნოსტიკა, სათადარიგო ნაწილები და პროექტები სამრეწველო და ლოჯისტიკური კომპანიებისთვის.",
+  sv_tag:"მომსახურება", sv_title:"რას ვაკეთებთ", sv_lead:"ერთი ჰერმეტიზატორის შეცვლიდან მთელი ობიექტის ტექმომსახურების ხელშეკრულებამდე. თითოეულ მიმართულებას ხელმძღვანელობს ამ სამუშაოსთვის სერტიფიცირებული სპეციალისტი.",
+  c1h:"სამრეწველო ტუმბოები", c1p:"ცენტრიდანული, ჰიგიენური, მრავალსაფეხურიანი, მოცულობითი და წნევის ამწევი ტუმბოების შეკეთება, კაპიტალური რემონტი და ტექმომსახურება.", c1a:"მექანიკური ჰერმეტიზატორების და საკისრების შეცვლა", c1b:"მუშა თვლის, ლილვის, ცვეთის რგოლის და კორპუსის შეკეთება", c1c:"ლაზერული ცენტრირება, ვიბრაციის და მწარმოებლურობის ტესტირება",
+  c2h:"დიზელის ძრავები", c2p:"სამრეწველო, გემის დამხმარე და მობილური ტექნიკის ძრავების მომსახურება, შეკეთება და კაპიტალური რემონტი.", c2a:"გეგმიური მომსახურება და ზეთის ანალიზი", c2b:"საწვავის შეშხეფების, ტურბოკომპრესორის და გაგრილების სისტემის შეკეთება", c2c:"ძრავის თავის და სრული კაპიტალური რემონტი",
+  c3h:"სატვირთო-ამწევი ტექნიკა", c3p:"ჩანგლიანი დამტვირთველები, რიჩსტაკერები, ტერმინალის ტრაქტორები, ამწეები და მძიმე ტექნიკა.", c3a:"პრევენციული ტექმომსახურების პროგრამები", c3b:"ჰიდრავლიკა, ტრანსმისია, მუხრუჭები და საჭე", c3c:"ავარიული რეაგირება ობიექტზე",
+  c4h:"დიაგნოსტიკა", c4p:"ვპოულობთ ძირეულ მიზეზს, სანამ ის ავარიად გადაიქცევა.", c4a:"ძრავის და ტექნიკის ECU შეცდომების წაკითხვა", c4b:"ვიბრაციის, თერმული და ელექტრული გაზომვები", c4c:"წერილობითი დასკვნა შეკეთების გეგმით",
+  c5h:"სათადარიგო ნაწილები", c5p:"ორიგინალი და დამტკიცებული ხარისხის ნაწილები თქვენი აღჭურვილობისთვის, სრული მიკვლევადობით.", c5a:"ჰერმეტიზატორები, საკისრები, ფილტრები, ღვედები, შლანგები", c5b:"ძრავის, ჰიდრავლიკის და ელექტრო კომპონენტები", c5c:"კრიტიკული სათადარიგო ნაწილების სიები თქვენი ტექნიკისთვის",
+  c6h:"ავტომატიზაცია", c6p:"მართვის სისტემების განახლება, რაც აღჭურვილობას უფრო უსაფრთხოს, ეფექტიანს და მონიტორინგისთვის მარტივს ხდის.", c6a:"PLC პროგრამირება და გაუმართაობის აღმოფხვრა", c6b:"სიხშირული გარდამქმნელების და რბილი გამშვებების მონტაჟი", c6c:"სენსორები, HMI და დისტანციური მონიტორინგი",
+  c7h:"ელექტრო სამუშაოები", c7p:"სამრეწველო ელექტრო მონტაჟი, შეკეთება და ტესტირება.", c7a:"ძრავები, მართვის ფარები და კაბელები", c7b:"იზოლაციის წინაღობის და დამიწების გაზომვები", c7c:"ელექტრომომარაგება და განათება",
+  c8h:"შედუღება", c8p:"შავი ლითონის და უჟანგავი ფოლადის სერტიფიცირებული შედუღება.", c8a:"კონსტრუქციული და სარემონტო შედუღება", c8b:"უჟანგავი და ჰიგიენური მილსადენები", c8c:"დამზადება ობიექტზე და სახელოსნოში",
+  c9h:"ტექმომსახურების ხელშეკრულებები", c9p:"მთელი ობიექტის გეგმიური ტექმომსახურება ერთი ხელშეკრულებით.", c9a:"გეგმიური მომსახურების გრაფიკები და სამუშაო გეგმები", c9b:"შეთანხმებული რეაგირების დრო (SLA)", c9c:"ყოველთვიური ანგარიშები და KPI-ები",
+  br_tag:"აღჭურვილობა, რომელსაც ვემსახურებით", br_title:"გამოცდილება წამყვან ბრენდებთან", br_lead:"ვმუშაობთ მსოფლიოს წამყვანი მწარმოებლების აღჭურვილობაზე, მათი სახელმძღვანელოების, სპეციფიკაციების და დასაშვები ცდომილებების დაცვით.",
+  br_c1:"ტუმბოები", br_c2:"მექანიკური ჰერმეტიზატორები", br_c3:"დიზელის ძრავები", br_c4:"სატვირთო-ამწევი ტექნიკა",
+  br_fine:"ბრენდების სახელწოდებები მათი მფლობელების სასაქონლო ნიშნებია და მითითებულია მხოლოდ იმ აღჭურვილობის საჩვენებლად, რომელსაც ვემსახურებით. შპს 2S Group დამოუკიდებელი მომსახურე კომპანიაა და არ არის ამ მწარმოებლების ავტორიზებული დილერი, თუ სხვა რამ არ არის მითითებული.",
+  e_tag:"გარემო, ჯანმრთელობა და უსაფრთხოება (EHS)", e_title:"უსაფრთხოება იგეგმება სამუშაოს დაწყებამდე", e_lead:"არცერთი სამუშაო არ არის იმდენად სასწრაფო, რომ უსაფრთხოდ ვერ შესრულდეს. ყველა დავალებისთვის ფასდება რისკი, ხოლო კონტროლის, ზედამხედველობის და EHS წარმომადგენლის ჩართულობის დონე განისაზღვრება სამუშაოს სირთულით და საფრთხით.",
+  e1h:"EHS შეხვედრა ყოველი სამუშაოს წინ", e1p:"სამუშაოს წინა შეხვედრა (toolbox talk) მთელ გუნდთან: სამუშაოს მოცულობა, საფრთხეები, კონტროლის ზომები და საგანგებო გეგმა.",
+  e2h:"რისკების შეფასება", e2p:"წერილობითი რისკების შეფასება ყველა რისკიანი დავალებისთვის, შეთანხმებული თქვენი ობიექტის გუნდთან სამუშაოს დაწყებამდე.",
+  e3h:"სამუშაო ნებართვა", e3p:"ცეცხლოვანი სამუშაოები, ჩაკეტილი სივრცეები, სიმაღლეზე მუშაობა, ელექტრო და ამწევი სამუშაოები მხოლოდ მოქმედი ნებართვით.",
+  e4h:"იზოლაცია და ჩაკეტვა", e4p:"ენერგიის წყაროები იზოლირდება, იკეტება და ინიშნება, ხოლო ენერგიის არარსებობა მოწმდება სამუშაოს დაწყებამდე.",
+  e5h:"მომზადებული და აღჭურვილი პერსონალი", e5p:"სერტიფიცირებული სპეციალისტები ინდივიდუალური დაცვის საშუალებებით, ხელსაწყოებით და თქვენი ობიექტის ინსტრუქტაჟით.",
+  e6h:"სამუშაოს შეჩერების უფლება", e6p:"ჩვენი გუნდის ნებისმიერ წევრს შეუძლია შეაჩეროს სამუშაო, თუ პირობები შეიცვალა ან რაიმე სახიფათოა.",
+  m_title:"გუნდი და კონტროლის ზომები რისკის დონის მიხედვით", m_c1:"რისკის დონე", m_c2:"ტიპიური სამუშაოები", m_c3:"გუნდი ობიექტზე", m_c4:"კონტროლის ზომები",
+  l1n:"დაბალი", l1e:"ინსპექტირება, რუტინული მომსახურება, დიაგნოსტიკა", l1t:"სერტიფიცირებული სპეციალისტ(ებ)ი", l1c:"EHS შეხვედრა, ობიექტის წესები, დაცვის საშუალებები",
+  l2n:"საშუალო", l2e:"კომპონენტების შეცვლა, ელექტრო შეკეთება, ტუმბოს რემონტი ობიექტზე", l2t:"სპეციალისტები ზედამხედველთან ერთად", l2c:"EHS შეხვედრა, RA, PTW, LOTO",
+  l3n:"მაღალი", l3e:"ცეცხლოვანი სამუშაოები, ჩაკეტილი სივრცე, სიმაღლეზე მუშაობა, მძიმე ტვირთის აწევა, მაღალი ძაბვის გამორთვა", l3t:"სრული გუნდი, ზედამხედველი და EHS წარმომადგენელი", l3c:"EHS შეხვედრა, RA, სამუშაოს მეთოდი, PTW, LOTO, უწყვეტი EHS მონიტორინგი",
+  q_tag:"ხარისხი", q_title:"მაღალი სტანდარტები ყველა სამუშაოში", q_lead:"ხარისხი მხოლოდ ბოლოს არ მოწმდება. ის ჩაშენებულია იმაში, თუ როგორ ვგეგმავთ, ვასრულებთ და ვაბარებთ სამუშაოს.",
+  q1h:"მწარმოებლის პროცედურები", q1p:"სამუშაო სრულდება მწარმოებლის სახელმძღვანელოების, სპეციფიკაციების, მოჭიმვის მომენტების და დასაშვები ცდომილებების მიხედვით.",
+  q2h:"მიკვლევადი ნაწილები", q2p:"ორიგინალი ან დამტკიცებული ხარისხის ნაწილები დოკუმენტირებული წყაროთი ყველა სამუშაოსთვის.",
+  q3h:"დაკალიბრებული ხელსაწყოები", q3p:"საზომი და სატესტო აღჭურვილობა დაკალიბრებულია და შეესაბამება დანიშნულებას.",
+  q4h:"ტესტირება ჩაბარებამდე", q4p:"აღჭურვილობა გადაეცემა თქვენს ოპერატორს მხოლოდ წარმატებული ტესტირების შემდეგ.",
+  q5h:"სრული დოკუმენტაცია", q5p:"მომსახურების ანგარიში, ფოტოები, გამოყენებული ნაწილები, გაზომვები და რეკომენდაციები ყოველი სამუშაოს შემდეგ.",
+  q6h:"ძირეულ მიზეზზე ორიენტაცია", q6p:"განმეორებადი დაზიანებები ანალიზდება, რათა ერთხელ აღმოიფხვრას და აღარ განმეორდეს.",
+  tm_tag:"გუნდის სრული მხარდაჭერა", tm_title:"თქვენ იღებთ გუნდს და არა მხოლოდ ტექნიკოსს", tm_lead:"თითოეული სამუშაოს გუნდი ყალიბდება მისი მოცულობის და რისკის მიხედვით. ყოველთვის იცით, ვინ არის პასუხისმგებელი.",
+  r1h:"პროექტის მენეჯერი", r1p:"თქვენი ერთადერთი საკონტაქტო პირი. პასუხისმგებელია მოცულობაზე, ვადებზე, ხარჯზე და ანგარიშგებაზე.",
+  r2h:"დამგეგმავი", r2p:"ამზადებს სამუშაო გეგმებს, ნაწილებს და რესურსებს, რომ სამუშაო დროულად დაიწყოს.",
+  r3h:"ობიექტის ზედამხედველი", r3p:"ხელმძღვანელობს გუნდს ობიექტზე, აკონტროლებს ხარისხს და კოორდინაციას უწევს თქვენს გუნდთან.",
+  r4h:"სერტიფიცირებული სპეციალისტები", r4p:"მექანიკის, ელექტროობის, ავტომატიზაციის, დიაგნოსტიკის და შედუღების ექსპერტები.",
+  r5h:"EHS წარმომადგენელი", r5p:"იმყოფება მაღალი რისკის სამუშაოებზე. ამოწმებს ნებართვებს, კონტროლის ზომებს და უსაფრთხო შესრულებას.",
+  p_tag:"როგორ ვმუშაობთ", p_title:"მოთხოვნიდან ჩაბარებამდე",
+  p1h:"მოთხოვნა", p1p:"გვატყობინებთ აღჭურვილობას, პრობლემას და სასწრაფოობას.",
+  p2h:"დათვალიერება და დიაგნოსტიკა", p2p:"სპეციალისტი ათვალიერებს აღჭურვილობას და ადგენს ძირეულ მიზეზს.",
+  p3h:"შეთავაზება და გეგმა", p3p:"მკაფიო მოცულობა, ღირებულება, ვადები, ნაწილები და გუნდის შემადგენლობა.",
+  p4h:"EHS მომზადება", p4p:"EHS შეხვედრა, რისკების შეფასება და სამუშაო ნებართვა, შეთანხმებული თქვენს ობიექტთან.",
+  p5h:"შესრულება", p5p:"სამუშაოს ასრულებენ სერტიფიცირებული სპეციალისტები ზედამხედველობის ქვეშ.",
+  p6h:"ტესტი, ჩაბარება და ანგარიში", p6p:"აღჭურვილობა მოწმდება თქვენს ოპერატორთან ერთად, შემდეგ კი მზადდება სრული ანგარიში.",
+  v_tag:"რატომ 2S Group", v_title:"რას იღებენ ხელმძღვანელები ჩვენთან თანამშრომლობით", v_lead:"აღმასრულებელი დირექტორებისთვის, დირექტორებისთვის და ტექმომსახურების მენეჯერებისთვის, რომლებსაც პრობლემის გადაჭრა სჭირდებათ და არა ახსნა.",
+  v1h:"ნაკლები მოცდენა", v1p:"სწრაფი დიაგნოსტიკა და სწორი სპეციალისტი პირველივე ჯერზე აღჭურვილობას უფრო მალე აბრუნებს მუშაობაში.",
+  v2h:"ერთი პასუხისმგებელი კონტრაქტორი", v2p:"ერთი ხელშეკრულება, ერთი კონტაქტი და ერთი ინვოისი მრავალი მიმართულებისთვის.",
+  v3h:"აუდიტისთვის გამჭვირვალე უსაფრთხოება", v3p:"RA, PTW და EHS ჩანაწერები ხელმისაწვდომია ყველა რისკიანი სამუშაოსთვის.",
+  v4h:"გამჭვირვალე ხარჯები", v4p:"მკაფიო შეთავაზება სამუშაოს დაწყებამდე, ფარული დამატებითი ხარჯების გარეშე.",
+  v5h:"მონაცემები გადაწყვეტილებებისთვის", v5p:"ანგარიშები და რეკომენდაციები, რომლებიც გეხმარებათ ბიუჯეტის და ჩანაცვლების დაგეგმვაში.",
+  v6h:"მოქნილი რესურსი", v6p:"ერთი ტექნიკოსიდან ერთი დღით, სრულ გუნდამდე გეგმიური გაჩერებისთვის.",
+  i_tag:"ინდუსტრიები", i_title:"სად ვმუშაობთ",
+  i1h:"პორტები და ტერმინალები", i1p:"რიჩსტაკერები, დამტვირთველები, ტრაქტორები, ამწეები, ტუმბოები და ენერგეტიკა.",
+  i2h:"ნავთობი და გაზი", i2p:"გადამქაჩი ტუმბოები, ძრავები, ელექტროობა და ინსტრუმენტაცია.",
+  i3h:"კვება და სასმელები", i3p:"ჰიგიენური ტუმბოები, უჟანგავი მილსადენები და დამხმარე სისტემები.",
+  i4h:"წარმოება", i4p:"საწარმოო ხაზები, ძრავები, ამძრავები და ავტომატიზაცია.",
+  i5h:"წყალი და კომუნალური სისტემები", i5p:"წნევის ამწევი სადგურები, სატუმბი სისტემები და გენერატორები.",
+  ct_tag:"კონტაქტი", ct_title:"გვითხარით, რა საჭიროებს შეკეთებას", ct_lead:"გამოგვიგზავნეთ მოთხოვნა და გიპასუხებთ სპეციალისტით, ვადებით და ფასით.",
+  d1:"ტელეფონი", d2:"ელ. ფოსტა", d3:"ვებგვერდი", d4:"საიდენტიფიკაციო კოდი", d5:"მდებარეობა", loc:"საქართველო",
+  f1:"სახელი", f2:"კომპანია", f3:"ტელეფონი", f4:"ელ. ფოსტა", f5:"მომსახურება", f6:"აღჭურვილობა და პრობლემა", f6ph:"მარკა, მოდელი და რა ხდება", f7:"მოთხოვნის გაგზავნა",
+  msg_err:"გთხოვთ, მიუთითოთ სახელი და ტელეფონი ან ელ. ფოსტა.",
+  msg_ok:"გმადლობთ. ონლაინ გაგზავნა ჯერ არ არის დაკავშირებული. მოგვწერეთ sale@2sgroup.ge ან დაგვირეკეთ +995 568 14 20 10.",
+  ft1:"© 2026 შპს 2S Group. ყველა უფლება დაცულია."
+},
+ru: {
+  n1:"О компании", n2:"Услуги", n3:"Безопасность", n4:"Качество", n5:"Команда", n6:"Контакты", cta:"Заказать услугу",
+  h_tag:"Промышленное обслуживание · Инжиниринг · Запчасти",
+  h_title:"Надёжное оборудование. <em>Безопасная работа.</em> Одна ответственная команда.",
+  h_lead:"ООО 2S Group выполняет техническое обслуживание и ремонт промышленных насосов, дизельных двигателей и погрузочно-подъёмной техники, поставляет запасные части, выполняет работы по автоматизации, электрике и сварке. Каждую задачу выполняют сертифицированные специалисты на основе оценки рисков и под надзором, по высоким стандартам качества и охраны труда.",
+  h_b1:"Заказать услугу", h_b2:"Как мы работаем безопасно",
+  bd1:"Сертифицированные специалисты по всем направлениям", bd2:"Инструктаж EHS, оценка рисков и наряд-допуск для опасных работ", bd3:"Супервайзер и представитель EHS на объекте", bd4:"Полная поддержка команды от заявки до сдачи",
+  s1:"направлений услуг", s2:"опасных работ по наряду-допуску и с оценкой рисков", s3:"договор, один контакт, один отчёт", s4:"зарегистрирована в Грузии",
+  a_tag:"О компании", a_title:"Новая компания с многолетним опытом",
+  a_p1:"ООО 2S Group зарегистрирована в Грузии в 2026 году с одной целью: завод, порт или терминал должен иметь возможность обратиться в одну компанию и получить нужного эксперта для любого оборудования на объекте.",
+  a_p2:"Компания новая, а опыт за ней многолетний. Наши специалисты построили карьеру на обслуживании насосов, двигателей, вилочных погрузчиков, ричстакеров, кранов и электрических систем в портах, на нефтяных терминалах, предприятиях пищевой промышленности и в тяжёлой промышленности.",
+  a_p3:"Вместо одной универсальной бригады 2S Group работает по договорам с сертифицированными специалистами по каждому направлению: насосники, механики по дизельным двигателям, инженеры-диагносты, электрики, инженеры по автоматизации и сертифицированные сварщики. Каждая работа выполняется с глубиной специалиста и простотой одного поставщика.",
+  a_p4:"Мы сочетаем этот практический опыт с современным управлением ТОиР: планирование, контроль рисков, документирование работ и данные, которые помогают принимать решения.",
+  t1w:"До 2026", t1h:"Годы практики", t1p:"Наши специалисты получают практический опыт в обслуживании, надёжности, планировании и CMMS на промышленных и портовых объектах.",
+  t2h:"Регистрация ООО 2S Group", t2p:"Компания основана в Грузии, чтобы объединить эти компетенции под одним именем.",
+  t3h:"Сеть специалистов по договорам", t3p:"Подписаны договоры с сертифицированными специалистами по механике, электрике, автоматизации, диагностике и сварке.",
+  t4w:"Сегодня", t4h:"Готовы к работе на вашем объекте", t4p:"Плановое обслуживание, аварийный ремонт, диагностика, запчасти и проекты для промышленных и логистических компаний.",
+  sv_tag:"Услуги", sv_title:"Что мы делаем", sv_lead:"От замены одного уплотнения до договора на обслуживание всего объекта. Каждое направление ведёт специалист, сертифицированный для этой работы.",
+  c1h:"Промышленные насосы", c1p:"Ремонт, капремонт и обслуживание центробежных, гигиенических, многоступенчатых, объёмных насосов и насосов повышения давления.", c1a:"Замена торцевых уплотнений и подшипников", c1b:"Ремонт рабочего колеса, вала, уплотнительных колец и корпуса", c1c:"Лазерная центровка, вибродиагностика и испытания производительности",
+  c2h:"Дизельные двигатели", c2p:"Обслуживание, ремонт и капремонт двигателей промышленных установок, вспомогательных судовых и мобильной техники.", c2a:"Плановое ТО и анализ масла", c2b:"Ремонт топливной аппаратуры, турбокомпрессора и системы охлаждения", c2c:"Ремонт ГБЦ и полный капремонт двигателя",
+  c3h:"Погрузочно-подъёмная техника", c3p:"Вилочные погрузчики, ричстакеры, терминальные тягачи, краны и тяжёлая техника.", c3a:"Программы планово-предупредительного ТО", c3b:"Гидравлика, трансмиссия, тормоза и рулевое управление", c3c:"Аварийный выезд на объект",
+  c4h:"Диагностика", c4p:"Находим первопричину до того, как она станет поломкой.", c4a:"Считывание ошибок ECU двигателя и техники", c4b:"Вибрационные, тепловизионные и электрические измерения", c4c:"Письменное заключение с планом ремонта",
+  c5h:"Запасные части", c5p:"Оригинальные и сертифицированные аналоги для вашего оборудования с полной прослеживаемостью.", c5a:"Уплотнения, подшипники, фильтры, ремни, рукава", c5b:"Компоненты двигателя, гидравлики и электрики", c5c:"Списки критичных запчастей для вашего парка",
+  c6h:"Автоматизация", c6p:"Модернизация систем управления, которая делает оборудование безопаснее, эффективнее и удобнее для мониторинга.", c6a:"Программирование и наладка ПЛК", c6b:"Монтаж частотных преобразователей и устройств плавного пуска", c6c:"Датчики, HMI и удалённый мониторинг",
+  c7h:"Электротехнические работы", c7p:"Промышленный электромонтаж, ремонт и испытания.", c7a:"Двигатели, щиты управления и кабели", c7b:"Измерение сопротивления изоляции и заземления", c7c:"Электроснабжение и освещение",
+  c8h:"Сварка", c8p:"Сертифицированная сварка чёрного металла и нержавеющей стали.", c8a:"Конструкционная и ремонтная сварка", c8b:"Нержавеющие и гигиенические трубопроводы", c8c:"Изготовление на объекте и в мастерской",
+  c9h:"Договоры на обслуживание", c9p:"Плановое обслуживание всего объекта по одному договору.", c9a:"Графики ППР и технологические карты", c9b:"Согласованное время реагирования (SLA)", c9c:"Ежемесячные отчёты и KPI",
+  br_tag:"Оборудование, которое мы обслуживаем", br_title:"Опыт работы с ведущими брендами", br_lead:"Работаем с оборудованием ведущих мировых производителей, соблюдая их руководства, спецификации и допуски.",
+  br_c1:"Насосы", br_c2:"Торцевые уплотнения", br_c3:"Дизельные двигатели", br_c4:"Погрузочно-подъёмная техника",
+  br_fine:"Названия брендов являются товарными знаками их владельцев и указаны только для обозначения обслуживаемого оборудования. ООО 2S Group является независимой сервисной компанией и не является авторизованным дилером этих производителей, если не указано иное.",
+  e_tag:"Охрана труда, здоровья и окружающей среды (EHS)", e_title:"Безопасность планируется до начала работ", e_lead:"Нет такой срочной работы, которую нельзя выполнить безопасно. Для каждой задачи оцениваются риски, а уровень контроля, надзора и участия представителя EHS определяется сложностью и опасностью работы.",
+  e1h:"Инструктаж EHS перед каждой работой", e1p:"Совещание перед началом работ (toolbox talk) со всей бригадой: объём, опасности, меры контроля и план действий при аварии.",
+  e2h:"Оценка рисков", e2p:"Письменная оценка рисков для каждой опасной задачи, согласованная с вашим объектом до начала работ.",
+  e3h:"Наряд-допуск", e3p:"Огневые работы, замкнутые пространства, работы на высоте, электро- и грузоподъёмные работы только по действующему наряду-допуску.",
+  e4h:"Отключение и блокировка", e4p:"Источники энергии отключаются, блокируются и маркируются, отсутствие энергии проверяется до начала работ.",
+  e5h:"Обученный и оснащённый персонал", e5p:"Сертифицированные специалисты с нужными СИЗ, инструментом и вводным инструктажем вашего объекта.",
+  e6h:"Право остановить работу", e6p:"Любой член нашей команды может остановить работу, если условия изменились или есть опасность.",
+  m_title:"Команда и меры контроля по уровню риска", m_c1:"Уровень риска", m_c2:"Типовые работы", m_c3:"Команда на объекте", m_c4:"Меры контроля",
+  l1n:"Низкий", l1e:"Осмотры, плановое ТО, диагностика", l1t:"Сертифицированный специалист(ы)", l1c:"Инструктаж EHS, правила объекта, СИЗ",
+  l2n:"Средний", l2e:"Замена узлов, ремонт электрики, ремонт насоса на объекте", l2t:"Специалисты с супервайзером", l2c:"Инструктаж EHS, RA, PTW, LOTO",
+  l3n:"Высокий", l3e:"Огневые работы, замкнутые пространства, работы на высоте, тяжёлые подъёмы, отключение высокого напряжения", l3t:"Полная команда, супервайзер и представитель EHS", l3c:"Инструктаж EHS, RA, метод производства работ, PTW, LOTO, постоянный контроль EHS",
+  q_tag:"Качество", q_title:"Высокие стандарты в каждой работе", q_lead:"Качество проверяется не только в конце. Оно заложено в то, как мы планируем, выполняем и сдаём работу.",
+  q1h:"Процедуры производителя", q1p:"Работы выполняются по руководствам производителя, спецификациям, моментам затяжки и допускам.",
+  q2h:"Прослеживаемые запчасти", q2p:"Оригинальные или сертифицированные запчасти с документированным происхождением для каждой работы.",
+  q3h:"Поверенный инструмент", q3p:"Измерительное и испытательное оборудование поверено и пригодно к применению.",
+  q4h:"Испытание перед сдачей", q4p:"Оборудование передаётся вашему оператору только после успешного испытания.",
+  q5h:"Полная документация", q5p:"Сервисный отчёт, фото, использованные запчасти, замеры и рекомендации после каждой работы.",
+  q6h:"Устранение первопричин", q6p:"Повторяющиеся отказы анализируются, чтобы устранить их один раз и навсегда.",
+  tm_tag:"Полная поддержка команды", tm_title:"Вы получаете команду, а не одного техника", tm_lead:"Состав команды определяется объёмом и риском каждой работы. Вы всегда знаете, кто отвечает.",
+  r1h:"Руководитель проекта", r1p:"Ваше единое контактное лицо. Отвечает за объём, сроки, стоимость и отчётность.",
+  r2h:"Планировщик", r2p:"Готовит планы работ, запчасти и ресурсы, чтобы работа началась вовремя.",
+  r3h:"Супервайзер на объекте", r3p:"Руководит бригадой, контролирует качество и координирует работу с вашей командой.",
+  r4h:"Сертифицированные специалисты", r4p:"Эксперты по механике, электрике, автоматизации, диагностике и сварке.",
+  r5h:"Представитель EHS", r5p:"Присутствует на работах высокого риска. Проверяет допуски, меры контроля и безопасность выполнения.",
+  p_tag:"Как мы работаем", p_title:"От заявки до сдачи",
+  p1h:"Заявка", p1p:"Вы сообщаете оборудование, проблему и срочность.",
+  p2h:"Осмотр и диагностика", p2p:"Специалист осматривает оборудование и находит первопричину.",
+  p3h:"Предложение и план", p3p:"Чёткий объём, стоимость, сроки, запчасти и состав команды.",
+  p4h:"Подготовка EHS", p4p:"Инструктаж EHS, оценка рисков и наряд-допуск, согласованные с вашим объектом.",
+  p5h:"Выполнение", p5p:"Работу выполняют сертифицированные специалисты под надзором.",
+  p6h:"Испытание, сдача и отчёт", p6p:"Проверка оборудования с вашим оператором и полный сервисный отчёт.",
+  v_tag:"Почему 2S Group", v_title:"Что получают руководители, работая с нами", v_lead:"Для генеральных директоров, директоров и руководителей службы ТОиР, которым нужно решение проблемы, а не объяснения.",
+  v1h:"Меньше простоев", v1p:"Быстрая диагностика и нужный специалист с первого раза быстрее возвращают оборудование в работу.",
+  v2h:"Один ответственный подрядчик", v2p:"Один договор, один контакт и один счёт по многим направлениям.",
+  v3h:"Безопасность, которую можно проверить", v3p:"Записи RA, PTW и EHS доступны по каждой опасной работе.",
+  v4h:"Прозрачные затраты", v4p:"Чёткое предложение до начала работ и никаких скрытых доплат.",
+  v5h:"Данные для решений", v5p:"Отчёты и рекомендации для планирования бюджета и замены оборудования.",
+  v6h:"Гибкие ресурсы", v6p:"От одного техника на день до полной команды на плановый останов.",
+  i_tag:"Отрасли", i_title:"Где мы работаем",
+  i1h:"Порты и терминалы", i1p:"Ричстакеры, погрузчики, тягачи, краны, насосы и энергетика.",
+  i2h:"Нефть и газ", i2p:"Перекачивающие насосы, двигатели, электрика и КИП.",
+  i3h:"Пищевая промышленность", i3p:"Гигиенические насосы, нержавеющие трубопроводы и инженерные системы.",
+  i4h:"Производство", i4p:"Производственные линии, двигатели, приводы и автоматизация.",
+  i5h:"Водоснабжение и ЖКХ", i5p:"Станции повышения давления, насосные системы и генераторы.",
+  ct_tag:"Контакты", ct_title:"Расскажите, что нужно починить", ct_lead:"Отправьте заявку, и мы ответим с указанием специалиста, сроков и стоимости.",
+  d1:"Телефон", d2:"Email", d3:"Сайт", d4:"Идентификационный код", d5:"Местоположение", loc:"Грузия",
+  f1:"Имя", f2:"Компания", f3:"Телефон", f4:"Email", f5:"Услуга", f6:"Оборудование и проблема", f6ph:"Марка, модель и что происходит", f7:"Отправить заявку",
+  msg_err:"Укажите имя и телефон или email.",
+  msg_ok:"Спасибо. Онлайн-отправка пока не подключена. Напишите на sale@2sgroup.ge или позвоните +995 568 14 20 10.",
+  ft1:"© 2026 ООО 2S Group. Все права защищены."
+}
+};
+var current = 'en';
+document.querySelectorAll('[data-i18n]').forEach(function(el){
+  var k = el.getAttribute('data-i18n');
+  if (!(k in T.en)) T.en[k] = el.innerHTML;
+});
+function setLang(l){
+  current = l;
+  var d = T[l];
+  document.documentElement.lang = l;
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var k = el.getAttribute('data-i18n');
+    el.innerHTML = (d[k] !== undefined) ? d[k] : T.en[k];
+  });
+  document.querySelectorAll('[data-i18n-ph]').forEach(function(el){
+    var k = el.getAttribute('data-i18n-ph');
+    el.placeholder = d[k] || T.en[k];
+  });
+  document.querySelectorAll('.lang button').forEach(function(b){
+    b.setAttribute('aria-pressed', b.getAttribute('data-lang') === l ? 'true' : 'false');
+  });
+  document.getElementById('formMsg').textContent = '';
+  try { localStorage.setItem('lang2s', l); } catch(e) {}
+}
+document.querySelectorAll('.lang button').forEach(function(b){
+  b.addEventListener('click', function(){ setLang(b.getAttribute('data-lang')); });
+});
+try { var saved = localStorage.getItem('lang2s'); if (saved && T[saved]) setLang(saved); } catch(e) {}
+
+document.getElementById('reqForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  var name = document.getElementById('f-name').value.trim();
+  var phone = document.getElementById('f-phone').value.trim();
+  var email = document.getElementById('f-email').value.trim();
+  var msg = document.getElementById('formMsg');
+  var d = T[current];
+  msg.textContent = (!name || (!phone && !email)) ? (d.msg_err || T.en.msg_err) : (d.msg_ok || T.en.msg_ok);
+});
+</script>
+</body>
+</html>
