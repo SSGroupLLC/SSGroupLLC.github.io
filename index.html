@@ -784,21 +784,31 @@ document.getElementById('reqForm').addEventListener('submit', function(e){
 </script>
 <script>
 (function(){
-var M={en:{s:"Sending...",ok:"Thank you. Your request has been sent. We will contact you soon.",no:"Sending failed. Please email sale@2sgroup.ge or call +995 568 14 20 10."},
-ka:{s:"იგზავნება...",ok:"გმადლობთ. თქვენი მოთხოვნა გაიგზავნა. მალე დაგიკავშირდებით.",no:"გაგზავნა ვერ მოხერხდა. მოგვწერეთ sale@2sgroup.ge ან დაგვირეკეთ +995 568 14 20 10."},
-ru:{s:"Отправка...",ok:"Спасибо. Ваша заявка отправлена. Мы скоро свяжемся с вами.",no:"Не удалось отправить. Напишите на sale@2sgroup.ge или позвоните +995 568 14 20 10."}};
+var M={en:{wa:"Send via WhatsApp",open:"Your email app is opening with the request filled in. Please press Send there. If nothing opened, email sale@2sgroup.ge or call +995 568 14 20 10.",n:"Name",c:"Company",p:"Phone",e:"Email",s:"Service",m:"Equipment and problem",subj:"Service request"},
+ka:{wa:"გაგზავნა WhatsApp-ით",open:"იხსნება თქვენი ელ. ფოსტის აპლიკაცია შევსებული მოთხოვნით. დააჭირეთ გაგზავნას. თუ არაფერი გაიხსნა, მოგვწერეთ sale@2sgroup.ge ან დაგვირეკეთ +995 568 14 20 10.",n:"სახელი",c:"კომპანია",p:"ტელეფონი",e:"ელ. ფოსტა",s:"მომსახურება",m:"აღჭურვილობა და პრობლემა",subj:"მომსახურების მოთხოვნა"},
+ru:{wa:"Отправить в WhatsApp",open:"Открывается ваше почтовое приложение с заполненной заявкой. Нажмите «Отправить». Если ничего не открылось, напишите на sale@2sgroup.ge или позвоните +995 568 14 20 10.",n:"Имя",c:"Компания",p:"Телефон",e:"Email",s:"Услуга",m:"Оборудование и проблема",subj:"Заявка на обслуживание"}};
 var old=document.getElementById('reqForm'),f=old.cloneNode(true);old.parentNode.replaceChild(f,old);
-f.addEventListener('submit',function(e){e.preventDefault();
-var v=function(id){return document.getElementById(id).value.trim();};
-var m=M[current]||M.en,box=document.getElementById('formMsg'),btn=f.querySelector('button[type=submit]');
-var name=v('f-name'),phone=v('f-phone'),email=v('f-email'),svc=document.getElementById('f-service').value;
-if(!name||(!phone&&!email)){box.textContent=T[current].msg_err||T.en.msg_err;return;}
-var data={name:name,company:v('f-company'),phone:phone,email:email,service:svc,message:v('f-msg'),language:current,_subject:'2sgroup.ge request: '+svc,_template:'table'};
-if(email)data._replyto=email;
-box.textContent=m.s;btn.disabled=true;
-fetch('https://formsubmit.co/ajax/sale@2sgroup.ge',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)})
-.then(function(r){return r.json();}).then(function(j){var ok=j&&(j.success===true||j.success==='true');box.textContent=ok?m.ok:m.no;if(ok)f.reset();})
-.catch(function(){box.textContent=m.no;}).then(function(){btn.disabled=false;});
+var send=f.querySelector('button[type=submit]');
+var wa=document.createElement('button');wa.type='button';wa.className='btn';wa.style.background='#1f9d55';
+send.insertAdjacentElement('afterend',wa);
+function L(){return M[current]||M.en;}
+function label(){wa.textContent=L().wa;}
+label();
+document.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',label);});
+function v(id){return document.getElementById(id).value.trim();}
+function collect(){
+  var box=document.getElementById('formMsg'),name=v('f-name'),phone=v('f-phone'),email=v('f-email');
+  if(!name||(!phone&&!email)){box.textContent=T[current].msg_err||T.en.msg_err;return null;}
+  var m=L(),svc=document.getElementById('f-service').value;
+  return {subj:m.subj+": "+svc+" - "+name,body:m.n+": "+name+"\n"+m.c+": "+v('f-company')+"\n"+m.p+": "+phone+"\n"+m.e+": "+email+"\n"+m.s+": "+svc+"\n"+m.m+": "+v('f-msg')};
+}
+f.addEventListener('submit',function(e){e.preventDefault();var d=collect();if(!d)return;
+  document.getElementById('formMsg').textContent=L().open;
+  window.location.href='mailto:sale@2sgroup.ge?subject='+encodeURIComponent(d.subj)+'&body='+encodeURIComponent(d.body);
+});
+wa.addEventListener('click',function(){var d=collect();if(!d)return;
+  document.getElementById('formMsg').textContent='';
+  window.open('https://wa.me/995568142010?text='+encodeURIComponent(d.subj+"\n\n"+d.body),'_blank');
 });
 })();
 </script>
